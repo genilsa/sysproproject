@@ -23,7 +23,7 @@ public class logIn extends javax.swing.JFrame {
      * Creates new form logIn
      */
     public logIn() {
-        this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(this);
         initComponents();
     }
 
@@ -51,11 +51,13 @@ public class logIn extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Nueva Std", 1, 18)); // NOI18N
         jLabel2.setText("   Password");
+        jLabel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         jButton1.setBackground(new java.awt.Color(102, 204, 255));
         jButton1.setFont(new java.awt.Font("Nueva Std", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(51, 51, 51));
         jButton1.setText("LOG IN");
+        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -64,6 +66,7 @@ public class logIn extends javax.swing.JFrame {
 
         password.setBackground(new java.awt.Color(204, 204, 204));
         password.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        password.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         password.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 passwordMouseEntered(evt);
@@ -98,10 +101,10 @@ public class logIn extends javax.swing.JFrame {
         jLabel3.setPreferredSize(new java.awt.Dimension(68, 68));
 
         jTextField1.setEditable(false);
-        jTextField1.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.background"));
         jTextField1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(153, 102, 0));
         jTextField1.setText("CHMSC-Bin Admintration Management System");
+        jTextField1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
