@@ -12,6 +12,6 @@
  */
 public class connect {
     
-         String url = "jdbc:mysql://localhost/sad?user=root&password=root";
+         String url = "jdbc:mysql://localhost/sad?user=root&password=";
     
 }
