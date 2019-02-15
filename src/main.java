@@ -1,14 +1,17 @@
 
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import java.util.Date;
+import static javafx.scene.paint.Color.color;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -28,8 +31,11 @@ public class main extends javax.swing.JFrame {
     public main() {
         initComponents();
         this.setLocationRelativeTo(null);
+        jRadioButton3.setVisible(false);
+        jRadioButton4.setVisible(false);
+        jLabel11.setVisible(false);
         jPanel3.setVisible(false);
-        addoc.setLocationRelativeTo(tab);
+
     }
 
     /**
@@ -42,7 +48,57 @@ public class main extends javax.swing.JFrame {
     private void initComponents() {
 
         statusgroup = new javax.swing.ButtonGroup();
-        addoc = new javax.swing.JDialog();
+        dstatus = new javax.swing.ButtonGroup();
+        searchbox = new javax.swing.JDialog();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        dt = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        desti = new javax.swing.JTextField();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        balik = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        doctable1 = new javax.swing.JTable();
+        search1 = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        baton = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        doctable2 = new javax.swing.JTable();
+        search2 = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        yesbaton = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        doctable = new javax.swing.JTable();
+        search = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        tab = new javax.swing.JTabbedPane();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        searchbax = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        split = new javax.swing.JSplitPane();
+        jPanel6 = new javax.swing.JPanel();
+        docbatonyes = new javax.swing.JButton();
+        docbatonno = new javax.swing.JButton();
+        bbalik = new javax.swing.JButton();
+        out = new javax.swing.JButton();
+        addoc = new javax.swing.JButton();
+        jPanel10 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -62,19 +118,631 @@ public class main extends javax.swing.JFrame {
         jRadioButton2 = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        tab = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        search = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        doctable = new javax.swing.JTable();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton4 = new javax.swing.JRadioButton();
 
-        addoc.setTitle("Adding Documents");
-        addoc.setMinimumSize(new java.awt.Dimension(509, 376));
-        addoc.setModal(true);
+        jLabel17.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel17.setText("Date of Travel:");
+
+        dt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        dt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dtActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel12.setText("Destination(s):");
+
+        jLabel14.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel14.setText("Name of Passengers:");
+
+        jTable2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "", ""
+            }
+        ));
+        jTable2.setRowHeight(30);
+        jTable2.setRowMargin(2);
+        jScrollPane3.setViewportView(jTable2);
+        if (jTable2.getColumnModel().getColumnCount() > 0) {
+            jTable2.getColumnModel().getColumn(1).setHeaderValue("");
+        }
+
+        jTextField3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel13.setText("Purpose:");
+
+        desti.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        jTable3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Vehicle to be Used: XUV - SJL 103", "Name of Driver: NORWIN V. RAMIREZ"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTable3.setRowHeight(30);
+        jScrollPane4.setViewportView(jTable3);
+
+        jLabel18.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel18.setText("MELANIE G. CANTOR");
+
+        jLabel19.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel19.setText("Administrative Officer IV");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane3)
+                            .addComponent(jScrollPane4)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(13, 13, 13)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(desti)
+                                    .addComponent(jTextField3)
+                                    .addComponent(dt, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 165, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(dt, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(desti, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51)
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel19)
+                .addGap(301, 301, 301))
+        );
+
+        javax.swing.GroupLayout searchboxLayout = new javax.swing.GroupLayout(searchbox.getContentPane());
+        searchbox.getContentPane().setLayout(searchboxLayout);
+        searchboxLayout.setHorizontalGroup(
+            searchboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(searchboxLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        searchboxLayout.setVerticalGroup(
+            searchboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(searchboxLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
+                .addGap(23, 23, 23))
+        );
+
+        balik.setMaximumSize(new java.awt.Dimension(815, 515));
+        balik.setMinimumSize(new java.awt.Dimension(815, 515));
+
+        doctable1.setBackground(new java.awt.Color(204, 204, 204));
+        doctable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(215, 117, 255)));
+        doctable1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        doctable1.setForeground(new java.awt.Color(0, 51, 51));
+        doctable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Control Number", "From", "Type", "Date Recieved"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        doctable1.setGridColor(new java.awt.Color(255, 51, 204));
+        doctable1.setMinimumSize(new java.awt.Dimension(300, 0));
+        doctable1.setSelectionBackground(new java.awt.Color(0, 102, 51));
+        doctable1.setSelectionForeground(new java.awt.Color(255, 255, 102));
+        doctable1.getTableHeader().setReorderingAllowed(false);
+        jScrollPane5.setViewportView(doctable1);
+
+        search1.setBackground(new java.awt.Color(201, 230, 229));
+        search1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        search1.setToolTipText("type here");
+        search1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        search1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search1ActionPerformed(evt);
+            }
+        });
+        search1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                search1KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                search1KeyTyped(evt);
+            }
+        });
+
+        jLabel20.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel20.setText("Search");
+
+        jLabel21.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel21.setText("All Deny Documents");
+
+        jLabel24.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setText("DENY DOCUMENTS");
+
+        javax.swing.GroupLayout balikLayout = new javax.swing.GroupLayout(balik);
+        balik.setLayout(balikLayout);
+        balikLayout.setHorizontalGroup(
+            balikLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(balikLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(balikLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(balikLayout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(search1))
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE)
+                    .addGroup(balikLayout.createSequentialGroup()
+                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        balikLayout.setVerticalGroup(
+            balikLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(balikLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(balikLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(search1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(balikLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        baton.setMaximumSize(new java.awt.Dimension(815, 515));
+        baton.setMinimumSize(new java.awt.Dimension(815, 515));
+
+        doctable2.setBackground(new java.awt.Color(204, 204, 204));
+        doctable2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(215, 117, 255)));
+        doctable2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        doctable2.setForeground(new java.awt.Color(0, 51, 51));
+        doctable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Control Number", "From", "Type", "Date Recieved"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        doctable2.setGridColor(new java.awt.Color(255, 51, 204));
+        doctable2.setMinimumSize(new java.awt.Dimension(300, 0));
+        doctable2.setSelectionBackground(new java.awt.Color(0, 102, 51));
+        doctable2.setSelectionForeground(new java.awt.Color(255, 255, 102));
+        doctable2.getTableHeader().setReorderingAllowed(false);
+        jScrollPane6.setViewportView(doctable2);
+
+        search2.setBackground(new java.awt.Color(201, 230, 229));
+        search2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        search2.setToolTipText("type here");
+        search2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        search2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search2ActionPerformed(evt);
+            }
+        });
+        search2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                search2KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                search2KeyTyped(evt);
+            }
+        });
+
+        jLabel22.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel22.setText("Search");
+
+        jLabel23.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel23.setText("All Accected Documents");
+
+        javax.swing.GroupLayout batonLayout = new javax.swing.GroupLayout(baton);
+        baton.setLayout(batonLayout);
+        batonLayout.setHorizontalGroup(
+            batonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(batonLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(batonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(batonLayout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(search2))
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE)
+                    .addGroup(batonLayout.createSequentialGroup()
+                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        batonLayout.setVerticalGroup(
+            batonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(batonLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(batonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(search2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        yesbaton.setMaximumSize(new java.awt.Dimension(815, 515));
+        yesbaton.setMinimumSize(new java.awt.Dimension(815, 515));
+
+        doctable.setBackground(new java.awt.Color(204, 204, 204));
+        doctable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(215, 117, 255)));
+        doctable.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        doctable.setForeground(new java.awt.Color(0, 51, 51));
+        doctable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Control Number", "From", "Type", "Date Recieved", "Date Dissemenate", "Disseminate To"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        doctable.setGridColor(new java.awt.Color(255, 51, 204));
+        doctable.setMinimumSize(new java.awt.Dimension(300, 0));
+        doctable.setSelectionBackground(new java.awt.Color(0, 102, 51));
+        doctable.setSelectionForeground(new java.awt.Color(255, 255, 102));
+        doctable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(doctable);
+
+        search.setBackground(new java.awt.Color(201, 230, 229));
+        search.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        search.setToolTipText("type here");
+        search.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchActionPerformed(evt);
+            }
+        });
+        search.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                searchKeyTyped(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel5.setText("Search");
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel6.setText("All Accected Documents");
+
+        javax.swing.GroupLayout yesbatonLayout = new javax.swing.GroupLayout(yesbaton);
+        yesbaton.setLayout(yesbatonLayout);
+        yesbatonLayout.setHorizontalGroup(
+            yesbatonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(yesbatonLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(yesbatonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(yesbatonLayout.createSequentialGroup()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(yesbatonLayout.createSequentialGroup()
+                        .addGroup(yesbatonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(yesbatonLayout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(search))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE))
+                        .addContainerGap())))
+        );
+        yesbatonLayout.setVerticalGroup(
+            yesbatonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(yesbatonLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(yesbatonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("SECRETARY");
+        setMinimumSize(new java.awt.Dimension(975, 605));
+        setSize(new java.awt.Dimension(15, 15));
+
+        tab.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        tab.setMinimumSize(new java.awt.Dimension(945, 575));
+        tab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabMouseClicked(evt);
+            }
+        });
+
+        jLabel15.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel15.setText("Search");
+
+        searchbax.setBackground(new java.awt.Color(201, 230, 229));
+        searchbax.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        searchbax.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        searchbax.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchbaxActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel16.setText("All Reservation");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Date of depparture", "Date of arrival", "Destinations", "Purpose", "Vehicle plate number", "Driver", "No. of Passengers"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTable1);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1001, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(searchbax, javax.swing.GroupLayout.PREFERRED_SIZE, 683, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(searchbax, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(11, 11, 11)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        tab.addTab("Car Reservation", jPanel2);
+
+        jPanel1.setAutoscrolls(true);
+        jPanel1.setMinimumSize(new java.awt.Dimension(940, 539));
+
+        jPanel6.setMaximumSize(new java.awt.Dimension(146, 515));
+        jPanel6.setMinimumSize(new java.awt.Dimension(146, 515));
+
+        docbatonyes.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        docbatonyes.setText("Accepted(dessiminste)");
+        docbatonyes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                docbatonyesActionPerformed(evt);
+            }
+        });
+
+        docbatonno.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        docbatonno.setText("Accepted(not dessiminate)");
+        docbatonno.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        docbatonno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                docbatonnoActionPerformed(evt);
+            }
+        });
+
+        bbalik.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        bbalik.setText("Deny Documents");
+        bbalik.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bbalikActionPerformed(evt);
+            }
+        });
+
+        out.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        out.setText("Log out");
+        out.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                outActionPerformed(evt);
+            }
+        });
+
+        addoc.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        addoc.setText("Add Documents");
+        addoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addocActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(docbatonno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(docbatonyes, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bbalik, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addoc, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(out, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+
+        jPanel6Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addoc, bbalik, docbatonno, docbatonyes, out});
+
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(addoc, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72)
+                .addComponent(docbatonyes, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(docbatonno, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(bbalik, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addComponent(out, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
+        );
+
+        jPanel6Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {addoc, bbalik, docbatonno, docbatonyes, out});
+
+        split.setLeftComponent(jPanel6);
+
+        jPanel4.setMaximumSize(new java.awt.Dimension(497, 419));
+        jPanel4.setMinimumSize(new java.awt.Dimension(497, 419));
 
         jLabel1.setBackground(new java.awt.Color(153, 153, 153));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -128,20 +796,19 @@ public class main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(to))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(m, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(dipu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(y, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(58, 58, 58)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(m, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(58, 58, 58)
+                                .addComponent(dipu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(y, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
 
@@ -203,7 +870,7 @@ public class main extends javax.swing.JFrame {
 
         statusgroup.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jRadioButton2.setText("Deny");
+        jRadioButton2.setText("Return");
         jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton2ActionPerformed(evt);
@@ -219,12 +886,36 @@ public class main extends javax.swing.JFrame {
         jButton3.setBackground(new java.awt.Color(204, 204, 204));
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(0, 180, 0));
-        jButton3.setText("Record");
+        jButton3.setText("SAVED");
         jButton3.setToolTipText("click to record");
         jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setBackground(new java.awt.Color(242, 171, 160));
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel11.setText("Disseminate stauts");
+        jLabel11.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        dstatus.add(jRadioButton3);
+        jRadioButton3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jRadioButton3.setText("Yes");
+        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton3ActionPerformed(evt);
+            }
+        });
+
+        dstatus.add(jRadioButton4);
+        jRadioButton4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jRadioButton4.setText("No");
+        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton4ActionPerformed(evt);
             }
         });
 
@@ -235,30 +926,41 @@ public class main extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(from))
+                        .addComponent(from)
+                        .addGap(12, 12, 12))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(172, 172, 172)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
-        jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel2, jLabel3, jLabel4});
+        jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel11, jLabel2, jLabel3, jLabel4});
 
-        jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jRadioButton1, jRadioButton2});
+        jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jRadioButton1, jRadioButton2, jRadioButton3, jRadioButton4});
 
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -276,154 +978,55 @@ public class main extends javax.swing.JFrame {
                     .addComponent(jRadioButton1)
                     .addComponent(jRadioButton2)
                     .addComponent(jLabel4))
-                .addGap(18, 18, 18)
+                .addGap(10, 10, 10)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton3)
+                    .addComponent(jRadioButton4)
+                    .addComponent(jLabel11))
+                .addGap(18, 20, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton3)
-                .addContainerGap())
+                .addGap(60, 60, 60))
         );
 
-        jPanel4Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {from, jLabel2, jLabel3, jLabel4, jRadioButton1, jRadioButton2, type});
+        jPanel4Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {from, jLabel11, jLabel2, jLabel3, jLabel4, jRadioButton1, jRadioButton2, jRadioButton3, jRadioButton4, type});
 
-        javax.swing.GroupLayout addocLayout = new javax.swing.GroupLayout(addoc.getContentPane());
-        addoc.getContentPane().setLayout(addocLayout);
-        addocLayout.setHorizontalGroup(
-            addocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addocLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap(108, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
-        addocLayout.setVerticalGroup(
-            addocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addocLayout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap(68, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(400, 300));
-
-        tab.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        tab.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 939, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 549, Short.MAX_VALUE)
-        );
-
-        tab.addTab("Car Reservation", jPanel2);
-
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel5.setText("Search");
-
-        search.setBackground(new java.awt.Color(201, 230, 229));
-        search.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        search.setToolTipText("type here");
-        search.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        search.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchActionPerformed(evt);
-            }
-        });
-        search.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                searchKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                searchKeyTyped(evt);
-            }
-        });
-
-        jButton2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jButton2.setText("add");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        doctable.setBackground(new java.awt.Color(0, 51, 51));
-        doctable.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 255, 0), 5, true));
-        doctable.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        doctable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Control Number", "From", "Type", "Date Recieved", "Status", "Date Dissemenate", "Disseminate To"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        doctable.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(doctable);
-
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel6.setText("All Documents");
+        split.setRightComponent(jPanel10);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(707, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(search)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(111, 111, 111))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(split)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(split)
+                .addContainerGap())
         );
-
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton2, jLabel5, jLabel6, search});
 
         tab.addTab("Record Documents", jPanel1);
 
@@ -431,157 +1034,297 @@ public class main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tab, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tab, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(tab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        jRadioButton3.setVisible(true);
+        jRadioButton4.setVisible(true);
+        jLabel11.setVisible(true);
 
-        jPanel3.setVisible(true);
-        m.setEnabled(true);
-        y.setEnabled(true);
-        dipu.setEnabled(true);
-        status = "Accept";
+        status = "accept";
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        // TODO add your handling code here:
 
+        jRadioButton3.setVisible(false);
+        jRadioButton4.setVisible(false);
+        jLabel11.setVisible(false);
         jPanel3.setVisible(false);
-        m.setEnabled(false);
-        y.setEnabled(false);
-        dipu.setEnabled(false);
-        status = "Deny";
+        dstatus.clearSelection();
+        to.setText("");
+        status = "deny";
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
-        addoc.setVisible(true);
-        addoc.setLocationRelativeTo(tab);
-        jPanel3.setVisible(false);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void searchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchKeyTyped
-
-
-    }//GEN-LAST:event_searchKeyTyped
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        int combotype = type.getSelectedIndex();
+        if (from.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "FILL-UP THE FIELD BEFORE SAVING!", "Message", JOptionPane.PLAIN_MESSAGE);
+        } else if (combotype == 0) {
+            JOptionPane.showMessageDialog(rootPane, "Please select Document Type", "Message", JOptionPane.PLAIN_MESSAGE);
+        } else if (status == null) {
+            JOptionPane.showMessageDialog(rootPane, "Please indicate the status", "Message", JOptionPane.PLAIN_MESSAGE);
+        } else {
+            if (status == "deny") {
+                if (from.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(rootPane, "FILL-UP THE FIELD BEFORE SAVING!", "Message", JOptionPane.PLAIN_MESSAGE);
+                } else {
+                    try {
+                        Class.forName("com.mysql.jdbc.Driver");
+                        Connection con = DriverManager.getConnection(new connect().url);
 
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection(new connect().url);
+                        String halin = from.getText();
 
-            String halin = from.getText();
+                        PreparedStatement psmt = con.prepareStatement("insert into redoc2 (ddocfrom,ddoctype,ddocabot)"
+                                + " values (?,?,?)");
 
-            PreparedStatement psmt = con.prepareStatement("insert into redoc (docfrom,doctype,docabot,docstatus,dessi,disseto)"
-                    + " values (?,?,?,?,?,?)");
-            ;
-            psmt.setString(1, halin);
-            int combotype = type.getSelectedIndex();
-            if (combotype == 0) {
-                JOptionPane.showMessageDialog(rootPane, "Please select Document Type", "WARNING", 0);
-            } else {
-                psmt.setString(2, "meno");
-            }
-            psmt.setString(3, "2018-08-07");
-            psmt.setString(4, status);
-            int yer = y.getSelectedIndex();
+                        psmt.setString(1, halin);
 
-            if (yer == 0) {
+                        if (combotype == 0) {
+                            JOptionPane.showMessageDialog(rootPane, "Please select Document Type", "Message", JOptionPane.PLAIN_MESSAGE);
+                        } else {
+                            psmt.setString(2, type.getSelectedItem().toString());
 
-                JOptionPane.showMessageDialog(rootPane, "Please select year", "WARNING", 0);
-            } else {
+                            Date date = new Date();
+                            // Specify the desired date format
+                            String DATE_FORMAT = "yyyy/MM/dd";
+                            // Create object of SimpleDateFormat and pass the desired date format.
+                            SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
+                            psmt.setString(3, sdf.format(date));
+                            if (status == null) {
+                                JOptionPane.showMessageDialog(rootPane, "Please indicate the status", "Message", JOptionPane.PLAIN_MESSAGE);
+                            } else {
+                                psmt.executeUpdate();
+                                JOptionPane.showMessageDialog(null, "SUCCEESSFULLY ADDED");
+                                from.setText("");
+                                type.setSelectedIndex(0);
+                                statusgroup.clearSelection();
+                            }
+                        }
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            } else if (status == "accept") {
 
-                tuig = y.getSelectedItem().toString();
-            }
+                if (from.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(rootPane, "FILL-UP THE FIELD BEFORE SAVING!", "Message", JOptionPane.PLAIN_MESSAGE);
+                } else {
+                    try {
+                        Class.forName("com.mysql.jdbc.Driver");
+                        Connection con = DriverManager.getConnection(new connect().url);
 
-            int day = dipu.getSelectedIndex();
+                        String halin = from.getText();
 
-            if (day == 0) {
+                        PreparedStatement psmt = con.prepareStatement("insert into redoc1 (docfrom,doctype,docabot,dessi,disseto,subid)"
+                                + " values (?,?,?,?,?,?)");
 
-                JOptionPane.showMessageDialog(rootPane, "Please select date", "WARNING", 0);
-            } else {
-                adlaw = dipu.getSelectedItem().toString();
-            }
+                        psmt.setString(1, halin);
 
-            int bulan = m.getSelectedIndex();
-            if (bulan == 0) {
+                        if (combotype == 0) {
+                            JOptionPane.showMessageDialog(rootPane, "Please select Document Type", "Message", JOptionPane.PLAIN_MESSAGE);
+                        } else {
+                            psmt.setString(2, type.getSelectedItem().toString());
 
-                JOptionPane.showMessageDialog(rootPane, "Please select month", "WARNING", 0);
-            }
-            if (bulan == 1) {
-                month = "01";
-            }
-            if (bulan == 2) {
-                month = "02";
-            }
-            if (bulan == 3) {
-                month = "03";
-            }
-            if (bulan == 4) {
-                month = "04";
-            }
-            if (bulan == 5) {
-                month = "05";
-            }
-            if (bulan == 6) {
-                month = "06";
-            }
-            if (bulan == 7) {
-                month = "07";
-            }
-            if (bulan == 8) {
-                month = "08";
-            }
-            if (bulan == 9) {
-                month = "09";
-            }
-            if (bulan == 10) {
-                month = "10";
-            }
-            if (bulan == 11) {
-                month = "11";
-            }
-            if (bulan == 12) {
-                month = "12";
-            }
-            if (m.getSelectedIndex() == 0) {
-                psmt.setDate(5, null);
-            } else {
-                String petsa = tuig + "-" + month + "-" + adlaw;
-                psmt.setString(5, petsa);
-            }
+                            Date date = new Date();
+                            // Specify the desired date format
+                            String DATE_FORMAT = "yyyy/MM/dd";
+                            // Create object of SimpleDateFormat and pass the desired date format.
+                            SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
+                            psmt.setString(3, sdf.format(date));
+                            if (status == null) {
+                                JOptionPane.showMessageDialog(rootPane, "Please indicate the status", "Message", JOptionPane.PLAIN_MESSAGE);
+                            } else {
+                                if (yes_no == null) {
+                                    JOptionPane.showMessageDialog(rootPane, "Please indicate either to dessiminste or not", "Message", JOptionPane.PLAIN_MESSAGE);
+                                } else {
+                                    if (yes_no == "no") {
 
-            psmt.setString(6, to.getText());
+                                        psmt.setString(4, null);
+                                        psmt.setString(5, null);
+                                        psmt.setString(6, "1");
+                                        psmt.executeUpdate();
+                                        JOptionPane.showMessageDialog(null, "SUCCEESSFULLY ADDED");
+                                        from.setText("");
+                                        type.setSelectedIndex(0);
+                                        statusgroup.clearSelection();
+                                        to.setText("");
+                                        m.setSelectedIndex(0);
+                                        dipu.setSelectedIndex(0);
+                                        y.setSelectedIndex(0);
+                                        jPanel3.setVisible(false);
+                                        dstatus.clearSelection();
+                                        jRadioButton3.setVisible(false);
+                                        jRadioButton4.setVisible(false);
+                                        jLabel11.setVisible(false);
+                                    } else if (yes_no == "yes") {
+                                        if (to.getText().isEmpty()) {
+                                            JOptionPane.showMessageDialog(rootPane, "FILL-UP THE FIELD BEFORE SAVING!", "Message", JOptionPane.PLAIN_MESSAGE);
 
-            psmt.executeUpdate();
-            JOptionPane.showMessageDialog(rootPane, "SUCCEESSFULLY ADDED");
+                                        } else if (y.getSelectedIndex() == 0 || m.getSelectedIndex() == 0 || dipu.getSelectedIndex() == 0) {
+                                            JOptionPane.showMessageDialog(rootPane, "FILL-UP THE FIELD BEFORE SAVING!", "Message", JOptionPane.PLAIN_MESSAGE);
+                                        } else {
+                                            int yer = y.getSelectedIndex();
 
-            from.setText("");
-            type.setSelectedIndex(0);
-            statusgroup.clearSelection();
-            to.setText("");
-            m.setSelectedIndex(0);
-            dipu.setSelectedIndex(0);
-            y.setSelectedIndex(0);
-            jPanel3.setVisible(false);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
-        }
+                                            if (yer == 0) {
+
+                                                JOptionPane.showMessageDialog(rootPane, "Please select year", "WARNING", 0);
+                                            } else {
+
+                                                tuig = y.getSelectedItem().toString();
+                                            }
+
+                                            int day = dipu.getSelectedIndex();
+
+                                            if (day == 0) {
+
+                                                JOptionPane.showMessageDialog(rootPane, "Please select date", "WARNING", 0);
+                                            } else {
+                                                adlaw = dipu.getSelectedItem().toString();
+                                            }
+
+                                            int bulan = m.getSelectedIndex();
+                                            if (bulan == 0) {
+
+                                                JOptionPane.showMessageDialog(rootPane, "Please select month", "WARNING", 0);
+                                            } else if (bulan == 1) {
+                                                month = "01";
+                                            } else if (bulan == 2) {
+                                                month = "02";
+                                            } else if (bulan == 3) {
+                                                month = "03";
+                                            } else if (bulan == 4) {
+                                                month = "04";
+                                            } else if (bulan == 5) {
+                                                month = "05";
+                                            } else if (bulan == 6) {
+                                                month = "06";
+                                            } else if (bulan == 7) {
+                                                month = "07";
+                                            } else if (bulan == 8) {
+                                                month = "08";
+                                            } else if (bulan == 9) {
+                                                month = "09";
+                                            } else if (bulan == 10) {
+                                                month = "10";
+                                            } else if (bulan == 11) {
+                                                month = "11";
+                                            } else if (bulan == 12) {
+                                                month = "12";
+                                            }
+
+                                            String petsa = tuig + "-" + month + "-" + adlaw;
+                                            psmt.setString(4, petsa);
+
+                                            psmt.setString(5, to.getText());
+                                            psmt.setString(6, "2");
+
+                                            psmt.executeUpdate();
+                                            JOptionPane.showMessageDialog(null, "SUCCEESSFULLY ADDED");
+                                            from.setText("");
+                                            type.setSelectedIndex(0);
+                                            statusgroup.clearSelection();
+                                            to.setText("");
+                                            m.setSelectedIndex(0);
+                                            dipu.setSelectedIndex(0);
+                                            y.setSelectedIndex(0);
+                                            jPanel3.setVisible(false);
+                                            dstatus.clearSelection();
+                                            jRadioButton3.setVisible(false);
+                                            jRadioButton4.setVisible(false);
+                                            jLabel11.setVisible(false);
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
+
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+                    }
 
 
     }//GEN-LAST:event_jButton3ActionPerformed
+            }
+        }
+    }
+    private void tabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabMouseClicked
+        addoc.setBackground(Color.GREEN);
+        docbatonno.setBackground(Color.GRAY);
+        docbatonyes.setBackground(Color.GRAY);
+        bbalik.setBackground(Color.GRAY);
+        out.setBackground(Color.GRAY);        // TODO add your handling code here:
+    }//GEN-LAST:event_tabMouseClicked
+
+    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+        yes_no = "yes";
+        jPanel3.setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton3ActionPerformed
+
+    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+        yes_no = "no";
+        jPanel3.setVisible(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton4ActionPerformed
+
+    private void dtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dtActionPerformed
+
+    private void searchbaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchbaxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchbaxActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void outActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outActionPerformed
+        this.dispose();
+        new logIn().setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_outActionPerformed
+
+    private void addocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addocActionPerformed
+        from.setText("");
+        type.setSelectedIndex(0);
+        statusgroup.clearSelection();
+        to.setText("");
+        m.setSelectedIndex(0);
+        dipu.setSelectedIndex(0);
+        y.setSelectedIndex(0);
+        jPanel3.setVisible(false);
+        dstatus.clearSelection();
+        jRadioButton3.setVisible(false);
+        jRadioButton4.setVisible(false);
+        jLabel11.setVisible(false);
+
+        addoc.setBackground(Color.GREEN);
+        docbatonno.setBackground(Color.GRAY);
+        docbatonyes.setBackground(Color.GRAY);
+        bbalik.setBackground(Color.GRAY);
+        out.setBackground(Color.GRAY);
+
+        split.setRightComponent(jPanel10);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addocActionPerformed
 
     private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
         // TODO add your handling code here:
@@ -589,7 +1332,7 @@ public class main extends javax.swing.JFrame {
 
     private void searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchKeyReleased
         if (search.getText().equals("")) {
-            jLabel6.setText("All Documents");
+            jLabel6.setText("All Accepted Documents");
         } else {
 
             jLabel6.setText("All Result");
@@ -599,7 +1342,7 @@ public class main extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection(new connect().url);
             Statement smt = con.createStatement();
-            String sql = "SELECT * FROM redoc WHERE";
+            String sql = "SELECT * FROM redoc1 WHERE subid = '2' and";
 
             if (pangita != (null)) {
                 sql = sql + " (docfrom LIKE '%" + pangita + "%')";
@@ -613,9 +1356,9 @@ public class main extends javax.swing.JFrame {
                 studentsModel.setValueAt(rs.getString("docfrom"), row, 1);
                 studentsModel.setValueAt(rs.getString("doctype"), row, 2);
                 studentsModel.setValueAt(rs.getString("docabot"), row, 3);
-                studentsModel.setValueAt(rs.getString("docstatus"), row, 4);
-                studentsModel.setValueAt(rs.getString("dessi"), row, 5);
-                studentsModel.setValueAt(rs.getString("disseto"), row, 6);
+
+                studentsModel.setValueAt(rs.getString("dessi"), row, 4);
+                studentsModel.setValueAt(rs.getString("disseto"), row, 5);
 
                 row++;
             }
@@ -628,14 +1371,167 @@ public class main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_searchKeyReleased
 
-    private void tabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabMouseClicked
+    private void searchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchKeyTyped
+
+    }//GEN-LAST:event_searchKeyTyped
+
+    private void docbatonyesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_docbatonyesActionPerformed
+        addoc.setBackground(Color.GRAY);
+        docbatonno.setBackground(Color.GRAY);
+        docbatonyes.setBackground(Color.GREEN);
+        bbalik.setBackground(Color.GRAY);
+        out.setBackground(Color.GRAY);
+        search.setText("");
+        search1.setText("");
+        search2.setText("");
+        split.setRightComponent(yesbaton);
+        refresh();
+// TODO add your handling code here:
+    }//GEN-LAST:event_docbatonyesActionPerformed
+
+    private void docbatonnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_docbatonnoActionPerformed
+        addoc.setBackground(Color.GRAY);
+        docbatonno.setBackground(Color.GREEN);
+        docbatonyes.setBackground(Color.GRAY);
+        bbalik.setBackground(Color.GRAY);
+        out.setBackground(Color.GRAY);
+        split.setRightComponent(baton);
+        search.setText("");
+        search1.setText("");
+        search2.setText("");
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection(new connect().url);
             Statement smt = con.createStatement();
-            String sql = "SELECT * FROM redoc;";
+            String sql = "SELECT * FROM redoc1 WHERE subid = '1';";
 
-            
+            ResultSet rs = smt.executeQuery(sql);
+            DefaultTableModel studentsModel = new tttttt().d1;
+            int row = 0;
+            while (rs.next()) {
+                studentsModel.addRow(new Object[]{});
+                studentsModel.setValueAt(rs.getString("cntrl"), row, 0);
+                studentsModel.setValueAt(rs.getString("docfrom"), row, 1);
+                studentsModel.setValueAt(rs.getString("doctype"), row, 2);
+                studentsModel.setValueAt(rs.getString("docabot"), row, 3);
+
+                row++;
+            }
+            doctable2.setModel(studentsModel);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+// TODO add your handling code here:
+    }//GEN-LAST:event_docbatonnoActionPerformed
+
+    private void bbalikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bbalikActionPerformed
+        addoc.setBackground(Color.GRAY);
+        docbatonno.setBackground(Color.GRAY);
+        docbatonyes.setBackground(Color.GRAY);
+        bbalik.setBackground(Color.GREEN);
+        out.setBackground(Color.GRAY);
+        search.setText("");
+        search1.setText("");
+        search2.setText("");
+        split.setRightComponent(balik);
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(new connect().url);
+            Statement smt = con.createStatement();
+            String sql = "SELECT * FROM redoc2;";
+
+            ResultSet rs = smt.executeQuery(sql);
+            DefaultTableModel studentsModel = new tttttt().d1;
+            int row = 0;
+            while (rs.next()) {
+                studentsModel.addRow(new Object[]{});
+                studentsModel.setValueAt(rs.getString("dcntrl"), row, 0);
+                studentsModel.setValueAt(rs.getString("ddocfrom"), row, 1);
+                studentsModel.setValueAt(rs.getString("ddoctype"), row, 2);
+                studentsModel.setValueAt(rs.getString("ddocabot"), row, 3);
+
+                row++;
+            }
+            doctable1.setModel(studentsModel);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_bbalikActionPerformed
+
+    private void search1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search1ActionPerformed
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_search1ActionPerformed
+
+    private void search1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search1KeyReleased
+        if (search1.getText().equals("")) {
+            jLabel6.setText("All Deny Documents");
+        } else {
+
+            jLabel6.setText("All Result");
+        }
+        String pangita = search1.getText();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(new connect().url);
+            Statement smt = con.createStatement();
+            String sql = "SELECT * FROM redoc2 WHERE";
+
+            if (pangita != (null)) {
+                sql = sql + " (ddocfrom LIKE '%" + pangita + "%')";
+            }
+            ResultSet rs = smt.executeQuery(sql);
+            DefaultTableModel studentsModel = new tttttt().d1;
+            int row = 0;
+            while (rs.next()) {
+                studentsModel.addRow(new Object[]{});
+                studentsModel.setValueAt(rs.getString("dcntrl"), row, 0);
+                studentsModel.setValueAt(rs.getString("ddocfrom"), row, 1);
+                studentsModel.setValueAt(rs.getString("ddoctype"), row, 2);
+                studentsModel.setValueAt(rs.getString("ddocabot"), row, 3);
+
+                row++;
+            }
+            doctable1.setModel(studentsModel);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+        }        // TODO add your handling code here:
+        // TODO add your handling code here:
+    }//GEN-LAST:event_search1KeyReleased
+
+    private void search1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search1KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_search1KeyTyped
+
+    private void search2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_search2ActionPerformed
+
+    private void search2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search2KeyReleased
+        if (search2.getText().equals("")) {
+            jLabel6.setText("All Accepted Documents");
+        } else {
+
+            jLabel6.setText("All Result");
+        }
+        String pangita = search2.getText();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(new connect().url);
+            Statement smt = con.createStatement();
+            String sql = "SELECT * FROM redoc1 WHERE subid = '1' and";
+
+            if (pangita != (null)) {
+                sql = sql + " (docfrom LIKE '%" + pangita + "%')";
+            }
             ResultSet rs = smt.executeQuery(sql);
             DefaultTableModel studentsModel = new tttttt().d;
             int row = 0;
@@ -645,19 +1541,23 @@ public class main extends javax.swing.JFrame {
                 studentsModel.setValueAt(rs.getString("docfrom"), row, 1);
                 studentsModel.setValueAt(rs.getString("doctype"), row, 2);
                 studentsModel.setValueAt(rs.getString("docabot"), row, 3);
-                studentsModel.setValueAt(rs.getString("docstatus"), row, 4);
-                studentsModel.setValueAt(rs.getString("dessi"), row, 5);
-                studentsModel.setValueAt(rs.getString("disseto"), row, 6);
+                studentsModel.setValueAt(null, row, 4);
+                studentsModel.setValueAt(null, row, 5);
 
                 row++;
             }
-            doctable.setModel(studentsModel);
+            doctable2.setModel(studentsModel);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
         }        // TODO add your handling code here:
-    }//GEN-LAST:event_tabMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_search2KeyReleased
+
+    private void search2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search2KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_search2KeyTyped
 
     /**
      * @param args the command line arguments
@@ -695,15 +1595,38 @@ public class main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDialog addoc;
+    private javax.swing.JButton addoc;
+    private javax.swing.JPanel balik;
+    private javax.swing.JPanel baton;
+    private javax.swing.JButton bbalik;
+    private javax.swing.JTextField desti;
     private javax.swing.JComboBox<String> dipu;
+    private javax.swing.JButton docbatonno;
+    private javax.swing.JButton docbatonyes;
     private javax.swing.JTable doctable;
+    private javax.swing.JTable doctable1;
+    private javax.swing.JTable doctable2;
+    private javax.swing.ButtonGroup dstatus;
+    private javax.swing.JTextField dt;
     private javax.swing.JTextField from;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -712,22 +1635,73 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JComboBox<String> m;
+    private javax.swing.JButton out;
     private javax.swing.JTextField search;
+    private javax.swing.JTextField search1;
+    private javax.swing.JTextField search2;
+    private javax.swing.JTextField searchbax;
+    private javax.swing.JDialog searchbox;
+    private javax.swing.JSplitPane split;
     private javax.swing.ButtonGroup statusgroup;
     private javax.swing.JTabbedPane tab;
     private javax.swing.JTextField to;
     private javax.swing.JComboBox<String> type;
     private javax.swing.JComboBox<String> y;
+    private javax.swing.JPanel yesbaton;
     // End of variables declaration//GEN-END:variables
 private String status;
     private String tuig;
     private String adlaw;
     private String month;
+    private String yes_no;
+
+    private void refresh() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(new connect().url);
+            Statement smt = con.createStatement();
+            String sql = "SELECT * FROM redoc1  WHERE subid = '2';";
+
+            ResultSet rs = smt.executeQuery(sql);
+            DefaultTableModel studentsModel = new tttttt().d;
+            int row = 0;
+            while (rs.next()) {
+                studentsModel.addRow(new Object[]{});
+                studentsModel.setValueAt(rs.getString("cntrl"), row, 0);
+                studentsModel.setValueAt(rs.getString("docfrom"), row, 1);
+                studentsModel.setValueAt(rs.getString("doctype"), row, 2);
+                studentsModel.setValueAt(rs.getString("docabot"), row, 3);
+                studentsModel.setValueAt(rs.getString("dessi"), row, 4);
+                studentsModel.setValueAt(rs.getString("disseto"), row, 5);
+
+                row++;
+            }
+            doctable.setModel(studentsModel);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
