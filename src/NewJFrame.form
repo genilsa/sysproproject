@@ -39,6 +39,10 @@
                       <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
                       <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                      <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace pref="122" max="32767" attributes="0"/>
           </Group>
@@ -49,7 +53,9 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
               <Component id="jSplitPane1" min="-2" pref="63" max="-2" attributes="0"/>
-              <EmptySpace pref="65" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="35" max="32767" attributes="0"/>
               <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
           </Group>
@@ -64,6 +70,11 @@
     <Component class="javax.swing.JCheckBox" name="jCheckBox1">
       <Properties>
         <Property name="text" type="java.lang.String" value="jCheckBox1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jRadioButton1"/>
       </Properties>
     </Component>
   </SubComponents>
