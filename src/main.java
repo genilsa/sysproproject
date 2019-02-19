@@ -11,7 +11,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import java.util.Date;
-import static javafx.scene.paint.Color.color;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -35,7 +34,7 @@ public class main extends javax.swing.JFrame {
         jRadioButton4.setVisible(false);
         jLabel11.setVisible(false);
         jPanel3.setVisible(false);
-
+        
     }
 
     /**
@@ -83,6 +82,9 @@ public class main extends javax.swing.JFrame {
         search = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jCalendar1 = new com.toedter.calendar.JCalendar();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         tab = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
@@ -96,20 +98,15 @@ public class main extends javax.swing.JFrame {
         docbatonyes = new javax.swing.JButton();
         docbatonno = new javax.swing.JButton();
         bbalik = new javax.swing.JButton();
-        out = new javax.swing.JButton();
         addoc = new javax.swing.JButton();
+        bbalik1 = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        m = new javax.swing.JComboBox<>();
-        y = new javax.swing.JComboBox<>();
-        dipu = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         to = new javax.swing.JTextField();
+        deccidate = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
         from = new javax.swing.JTextField();
         type = new javax.swing.JComboBox<>();
@@ -121,6 +118,7 @@ public class main extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
+        jSeparator1 = new javax.swing.JSeparator();
 
         jLabel17.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel17.setText("Date of Travel:");
@@ -563,10 +561,32 @@ public class main extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap(109, Short.MAX_VALUE)
+                .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46))
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(162, 162, 162)
+                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap(18, Short.MAX_VALUE)
+                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SECRETARY");
         setMinimumSize(new java.awt.Dimension(975, 605));
-        setSize(new java.awt.Dimension(15, 15));
 
         tab.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         tab.setMinimumSize(new java.awt.Dimension(945, 575));
@@ -648,7 +668,7 @@ public class main extends javax.swing.JFrame {
                 .addGap(11, 11, 11)
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -685,19 +705,21 @@ public class main extends javax.swing.JFrame {
             }
         });
 
-        out.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        out.setText("Log out");
-        out.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                outActionPerformed(evt);
-            }
-        });
-
         addoc.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         addoc.setText("Add Documents");
         addoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addocActionPerformed(evt);
+            }
+        });
+
+        bbalik1.setBackground(new java.awt.Color(153, 0, 0));
+        bbalik1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        bbalik1.setForeground(new java.awt.Color(255, 255, 255));
+        bbalik1.setText("Log out");
+        bbalik1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bbalik1ActionPerformed(evt);
             }
         });
 
@@ -708,18 +730,15 @@ public class main extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(docbatonno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(docbatonyes, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bbalik, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addoc, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(out, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addComponent(docbatonyes, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addoc, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bbalik1, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                    .addComponent(docbatonno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bbalik, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel6Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addoc, bbalik, docbatonno, docbatonyes, out});
+        jPanel6Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addoc, bbalik, bbalik1, docbatonno, docbatonyes});
 
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -732,47 +751,25 @@ public class main extends javax.swing.JFrame {
                 .addComponent(docbatonno, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(bbalik, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
-                .addComponent(out, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+                .addComponent(bbalik1)
+                .addContainerGap())
         );
 
-        jPanel6Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {addoc, bbalik, docbatonno, docbatonyes, out});
+        jPanel6Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {addoc, bbalik, docbatonno, docbatonyes});
 
         split.setLeftComponent(jPanel6);
 
         jPanel4.setMaximumSize(new java.awt.Dimension(497, 419));
         jPanel4.setMinimumSize(new java.awt.Dimension(497, 419));
 
+        jPanel3.setPreferredSize(new java.awt.Dimension(740, 86));
+
         jLabel1.setBackground(new java.awt.Color(153, 153, 153));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Date Disseminate");
         jLabel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Month");
-
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Date");
-
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Year");
-
-        m.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        m.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Month", "Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec" }));
-        m.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        y.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        y.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Year", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025" }));
-        y.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        dipu.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        dipu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Date", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        dipu.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel10.setBackground(new java.awt.Color(153, 153, 153));
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -783,37 +780,24 @@ public class main extends javax.swing.JFrame {
         to.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         to.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        deccidate.setToolTipText("");
+        deccidate.setDateFormatString("YYYY-MM-dd");
+        deccidate.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 45, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(to))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(58, 58, 58)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(m, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(58, 58, 58)
-                                .addComponent(dipu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(y, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
+                    .addComponent(deccidate, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(to, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
-
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {dipu, jLabel7, jLabel8, jLabel9, m, y});
-
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -821,24 +805,14 @@ public class main extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(to, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(m, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dipu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(y, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deccidate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel7, jLabel8, jLabel9});
-
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel1, jLabel10, to});
+        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {deccidate, jLabel1, jLabel10, to});
 
         jLabel3.setBackground(new java.awt.Color(242, 171, 160));
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -889,6 +863,9 @@ public class main extends javax.swing.JFrame {
         jButton3.setText("SAVED");
         jButton3.setToolTipText("click to record");
         jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton3.setMaximumSize(new java.awt.Dimension(68, 29));
+        jButton3.setMinimumSize(new java.awt.Dimension(68, 29));
+        jButton3.setPreferredSize(new java.awt.Dimension(68, 29));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -923,39 +900,36 @@ public class main extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator1)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(15, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 738, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(from)
-                        .addGap(12, 12, 12))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(172, 172, 172)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(from, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(35, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel11, jLabel2, jLabel3, jLabel4});
@@ -965,7 +939,7 @@ public class main extends javax.swing.JFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(81, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(from, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -983,11 +957,13 @@ public class main extends javax.swing.JFrame {
                     .addComponent(jRadioButton3)
                     .addComponent(jRadioButton4)
                     .addComponent(jLabel11))
-                .addGap(18, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addGap(60, 60, 60))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         jPanel4Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {from, jLabel11, jLabel2, jLabel3, jLabel4, jRadioButton1, jRadioButton2, jRadioButton3, jRadioButton4, type});
@@ -996,17 +972,17 @@ public class main extends javax.swing.JFrame {
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap(108, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap(68, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         split.setRightComponent(jPanel10);
@@ -1042,8 +1018,9 @@ public class main extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(tab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap()
+                .addComponent(tab, javax.swing.GroupLayout.PREFERRED_SIZE, 564, Short.MAX_VALUE)
+                .addGap(10, 10, 10))
         );
 
         pack();
@@ -1053,13 +1030,13 @@ public class main extends javax.swing.JFrame {
         jRadioButton3.setVisible(true);
         jRadioButton4.setVisible(true);
         jLabel11.setVisible(true);
-
+        
         status = "accept";
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-
+        
         jRadioButton3.setVisible(false);
         jRadioButton4.setVisible(false);
         jLabel11.setVisible(false);
@@ -1067,6 +1044,7 @@ public class main extends javax.swing.JFrame {
         dstatus.clearSelection();
         to.setText("");
         status = "deny";
+        yes_no = null;
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -1085,19 +1063,19 @@ public class main extends javax.swing.JFrame {
                     try {
                         Class.forName("com.mysql.jdbc.Driver");
                         Connection con = DriverManager.getConnection(new connect().url);
-
+                        
                         String halin = from.getText();
-
+                        
                         PreparedStatement psmt = con.prepareStatement("insert into redoc2 (ddocfrom,ddoctype,ddocabot)"
                                 + " values (?,?,?)");
-
+                        
                         psmt.setString(1, halin);
-
+                        
                         if (combotype == 0) {
                             JOptionPane.showMessageDialog(rootPane, "Please select Document Type", "Message", JOptionPane.PLAIN_MESSAGE);
                         } else {
                             psmt.setString(2, type.getSelectedItem().toString());
-
+                            
                             Date date = new Date();
                             // Specify the desired date format
                             String DATE_FORMAT = "yyyy/MM/dd";
@@ -1114,33 +1092,31 @@ public class main extends javax.swing.JFrame {
                                 statusgroup.clearSelection();
                             }
                         }
-                    } catch (ClassNotFoundException ex) {
-                        Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (SQLException ex) {
+                    } catch (ClassNotFoundException | SQLException ex) {
                         Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             } else if (status == "accept") {
-
+                
                 if (from.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(rootPane, "FILL-UP THE FIELD BEFORE SAVING!", "Message", JOptionPane.PLAIN_MESSAGE);
                 } else {
                     try {
                         Class.forName("com.mysql.jdbc.Driver");
                         Connection con = DriverManager.getConnection(new connect().url);
-
+                        
                         String halin = from.getText();
-
+                        
                         PreparedStatement psmt = con.prepareStatement("insert into redoc1 (docfrom,doctype,docabot,dessi,disseto,subid)"
                                 + " values (?,?,?,?,?,?)");
-
+                        
                         psmt.setString(1, halin);
-
+                        
                         if (combotype == 0) {
                             JOptionPane.showMessageDialog(rootPane, "Please select Document Type", "Message", JOptionPane.PLAIN_MESSAGE);
                         } else {
                             psmt.setString(2, type.getSelectedItem().toString());
-
+                            
                             Date date = new Date();
                             // Specify the desired date format
                             String DATE_FORMAT = "yyyy/MM/dd";
@@ -1154,7 +1130,7 @@ public class main extends javax.swing.JFrame {
                                     JOptionPane.showMessageDialog(rootPane, "Please indicate either to dessiminste or not", "Message", JOptionPane.PLAIN_MESSAGE);
                                 } else {
                                     if (yes_no == "no") {
-
+                                        
                                         psmt.setString(4, null);
                                         psmt.setString(5, null);
                                         psmt.setString(6, "1");
@@ -1164,85 +1140,33 @@ public class main extends javax.swing.JFrame {
                                         type.setSelectedIndex(0);
                                         statusgroup.clearSelection();
                                         to.setText("");
-                                        m.setSelectedIndex(0);
-                                        dipu.setSelectedIndex(0);
-                                        y.setSelectedIndex(0);
+                                        
                                         jPanel3.setVisible(false);
                                         dstatus.clearSelection();
                                         jRadioButton3.setVisible(false);
                                         jRadioButton4.setVisible(false);
                                         jLabel11.setVisible(false);
                                     } else if (yes_no == "yes") {
+                                        
                                         if (to.getText().isEmpty()) {
                                             JOptionPane.showMessageDialog(rootPane, "FILL-UP THE FIELD BEFORE SAVING!", "Message", JOptionPane.PLAIN_MESSAGE);
-
-                                        } else if (y.getSelectedIndex() == 0 || m.getSelectedIndex() == 0 || dipu.getSelectedIndex() == 0) {
+                                            
+                                        } else if (deccidate.getDate() == null) {
                                             JOptionPane.showMessageDialog(rootPane, "FILL-UP THE FIELD BEFORE SAVING!", "Message", JOptionPane.PLAIN_MESSAGE);
                                         } else {
-                                            int yer = y.getSelectedIndex();
-
-                                            if (yer == 0) {
-
-                                                JOptionPane.showMessageDialog(rootPane, "Please select year", "WARNING", 0);
-                                            } else {
-
-                                                tuig = y.getSelectedItem().toString();
-                                            }
-
-                                            int day = dipu.getSelectedIndex();
-
-                                            if (day == 0) {
-
-                                                JOptionPane.showMessageDialog(rootPane, "Please select date", "WARNING", 0);
-                                            } else {
-                                                adlaw = dipu.getSelectedItem().toString();
-                                            }
-
-                                            int bulan = m.getSelectedIndex();
-                                            if (bulan == 0) {
-
-                                                JOptionPane.showMessageDialog(rootPane, "Please select month", "WARNING", 0);
-                                            } else if (bulan == 1) {
-                                                month = "01";
-                                            } else if (bulan == 2) {
-                                                month = "02";
-                                            } else if (bulan == 3) {
-                                                month = "03";
-                                            } else if (bulan == 4) {
-                                                month = "04";
-                                            } else if (bulan == 5) {
-                                                month = "05";
-                                            } else if (bulan == 6) {
-                                                month = "06";
-                                            } else if (bulan == 7) {
-                                                month = "07";
-                                            } else if (bulan == 8) {
-                                                month = "08";
-                                            } else if (bulan == 9) {
-                                                month = "09";
-                                            } else if (bulan == 10) {
-                                                month = "10";
-                                            } else if (bulan == 11) {
-                                                month = "11";
-                                            } else if (bulan == 12) {
-                                                month = "12";
-                                            }
-
-                                            String petsa = tuig + "-" + month + "-" + adlaw;
-                                            psmt.setString(4, petsa);
-
+                                            
+                                            psmt.setString(4, sdf.format(deccidate.getDate()));
+                                            
                                             psmt.setString(5, to.getText());
                                             psmt.setString(6, "2");
-
+                                            
                                             psmt.executeUpdate();
                                             JOptionPane.showMessageDialog(null, "SUCCEESSFULLY ADDED");
                                             from.setText("");
                                             type.setSelectedIndex(0);
                                             statusgroup.clearSelection();
                                             to.setText("");
-                                            m.setSelectedIndex(0);
-                                            dipu.setSelectedIndex(0);
-                                            y.setSelectedIndex(0);
+                                            deccidate.setCalendar(null);
                                             jPanel3.setVisible(false);
                                             dstatus.clearSelection();
                                             jRadioButton3.setVisible(false);
@@ -1250,17 +1174,15 @@ public class main extends javax.swing.JFrame {
                                             jLabel11.setVisible(false);
                                         }
                                     }
-
+                                    
                                 }
                             }
                         }
-
-                    } catch (ClassNotFoundException ex) {
-                        Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (SQLException ex) {
+                        
+                    } catch (ClassNotFoundException | SQLException ex) {
                         Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
                     }
-
+                    
 
     }//GEN-LAST:event_jButton3ActionPerformed
             }
@@ -1271,7 +1193,7 @@ public class main extends javax.swing.JFrame {
         docbatonno.setBackground(Color.GRAY);
         docbatonyes.setBackground(Color.GRAY);
         bbalik.setBackground(Color.GRAY);
-        out.setBackground(Color.GRAY);        // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_tabMouseClicked
 
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
@@ -1296,32 +1218,23 @@ public class main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
 
-    private void outActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outActionPerformed
-        this.dispose();
-        new logIn().setVisible(true);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_outActionPerformed
-
     private void addocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addocActionPerformed
         from.setText("");
         type.setSelectedIndex(0);
         statusgroup.clearSelection();
         to.setText("");
-        m.setSelectedIndex(0);
-        dipu.setSelectedIndex(0);
-        y.setSelectedIndex(0);
+        
         jPanel3.setVisible(false);
         dstatus.clearSelection();
         jRadioButton3.setVisible(false);
         jRadioButton4.setVisible(false);
         jLabel11.setVisible(false);
-
+        
         addoc.setBackground(Color.GREEN);
         docbatonno.setBackground(Color.GRAY);
         docbatonyes.setBackground(Color.GRAY);
         bbalik.setBackground(Color.GRAY);
-        out.setBackground(Color.GRAY);
-
+        
         split.setRightComponent(jPanel10);
         // TODO add your handling code here:
     }//GEN-LAST:event_addocActionPerformed
@@ -1334,7 +1247,7 @@ public class main extends javax.swing.JFrame {
         if (search.getText().equals("")) {
             jLabel6.setText("All Accepted Documents");
         } else {
-
+            
             jLabel6.setText("All Result");
         }
         String pangita = search.getText();
@@ -1343,7 +1256,7 @@ public class main extends javax.swing.JFrame {
             Connection con = DriverManager.getConnection(new connect().url);
             Statement smt = con.createStatement();
             String sql = "SELECT * FROM redoc1 WHERE subid = '2' and";
-
+            
             if (pangita != (null)) {
                 sql = sql + " (docfrom LIKE '%" + pangita + "%')";
             }
@@ -1356,19 +1269,17 @@ public class main extends javax.swing.JFrame {
                 studentsModel.setValueAt(rs.getString("docfrom"), row, 1);
                 studentsModel.setValueAt(rs.getString("doctype"), row, 2);
                 studentsModel.setValueAt(rs.getString("docabot"), row, 3);
-
+                
                 studentsModel.setValueAt(rs.getString("dessi"), row, 4);
                 studentsModel.setValueAt(rs.getString("disseto"), row, 5);
-
+                
                 row++;
             }
             doctable.setModel(studentsModel);
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
-        }        // TODO add your handling code here:
-        // TODO add your handling code here:
+        }
+        // TODO add your handling code here:// TODO add your handling code here:
     }//GEN-LAST:event_searchKeyReleased
 
     private void searchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchKeyTyped
@@ -1380,7 +1291,7 @@ public class main extends javax.swing.JFrame {
         docbatonno.setBackground(Color.GRAY);
         docbatonyes.setBackground(Color.GREEN);
         bbalik.setBackground(Color.GRAY);
-        out.setBackground(Color.GRAY);
+        
         search.setText("");
         search1.setText("");
         search2.setText("");
@@ -1394,18 +1305,18 @@ public class main extends javax.swing.JFrame {
         docbatonno.setBackground(Color.GREEN);
         docbatonyes.setBackground(Color.GRAY);
         bbalik.setBackground(Color.GRAY);
-        out.setBackground(Color.GRAY);
+        
         split.setRightComponent(baton);
         search.setText("");
         search1.setText("");
         search2.setText("");
-
+        
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection(new connect().url);
             Statement smt = con.createStatement();
             String sql = "SELECT * FROM redoc1 WHERE subid = '1';";
-
+            
             ResultSet rs = smt.executeQuery(sql);
             DefaultTableModel studentsModel = new tttttt().d1;
             int row = 0;
@@ -1415,15 +1326,15 @@ public class main extends javax.swing.JFrame {
                 studentsModel.setValueAt(rs.getString("docfrom"), row, 1);
                 studentsModel.setValueAt(rs.getString("doctype"), row, 2);
                 studentsModel.setValueAt(rs.getString("docabot"), row, 3);
-
+                
                 row++;
             }
             doctable2.setModel(studentsModel);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
         }
+// TODO add your handling code here:
+        
 // TODO add your handling code here:
     }//GEN-LAST:event_docbatonnoActionPerformed
 
@@ -1432,18 +1343,18 @@ public class main extends javax.swing.JFrame {
         docbatonno.setBackground(Color.GRAY);
         docbatonyes.setBackground(Color.GRAY);
         bbalik.setBackground(Color.GREEN);
-        out.setBackground(Color.GRAY);
+        
         search.setText("");
         search1.setText("");
         search2.setText("");
         split.setRightComponent(balik);
-
+        
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection(new connect().url);
             Statement smt = con.createStatement();
             String sql = "SELECT * FROM redoc2;";
-
+            
             ResultSet rs = smt.executeQuery(sql);
             DefaultTableModel studentsModel = new tttttt().d1;
             int row = 0;
@@ -1453,15 +1364,15 @@ public class main extends javax.swing.JFrame {
                 studentsModel.setValueAt(rs.getString("ddocfrom"), row, 1);
                 studentsModel.setValueAt(rs.getString("ddoctype"), row, 2);
                 studentsModel.setValueAt(rs.getString("ddocabot"), row, 3);
-
+                
                 row++;
             }
             doctable1.setModel(studentsModel);
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
-        }        // TODO add your handling code here:
+        }
+        // TODO add your handling code here:
+                // TODO add your handling code here:
     }//GEN-LAST:event_bbalikActionPerformed
 
     private void search1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search1ActionPerformed
@@ -1473,7 +1384,7 @@ public class main extends javax.swing.JFrame {
         if (search1.getText().equals("")) {
             jLabel6.setText("All Deny Documents");
         } else {
-
+            
             jLabel6.setText("All Result");
         }
         String pangita = search1.getText();
@@ -1482,7 +1393,7 @@ public class main extends javax.swing.JFrame {
             Connection con = DriverManager.getConnection(new connect().url);
             Statement smt = con.createStatement();
             String sql = "SELECT * FROM redoc2 WHERE";
-
+            
             if (pangita != (null)) {
                 sql = sql + " (ddocfrom LIKE '%" + pangita + "%')";
             }
@@ -1495,16 +1406,14 @@ public class main extends javax.swing.JFrame {
                 studentsModel.setValueAt(rs.getString("ddocfrom"), row, 1);
                 studentsModel.setValueAt(rs.getString("ddoctype"), row, 2);
                 studentsModel.setValueAt(rs.getString("ddocabot"), row, 3);
-
+                
                 row++;
             }
             doctable1.setModel(studentsModel);
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
-        }        // TODO add your handling code here:
-        // TODO add your handling code here:
+        }
+        // TODO add your handling code here:// TODO add your handling code here:
     }//GEN-LAST:event_search1KeyReleased
 
     private void search1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search1KeyTyped
@@ -1519,7 +1428,7 @@ public class main extends javax.swing.JFrame {
         if (search2.getText().equals("")) {
             jLabel6.setText("All Accepted Documents");
         } else {
-
+            
             jLabel6.setText("All Result");
         }
         String pangita = search2.getText();
@@ -1528,7 +1437,7 @@ public class main extends javax.swing.JFrame {
             Connection con = DriverManager.getConnection(new connect().url);
             Statement smt = con.createStatement();
             String sql = "SELECT * FROM redoc1 WHERE subid = '1' and";
-
+            
             if (pangita != (null)) {
                 sql = sql + " (docfrom LIKE '%" + pangita + "%')";
             }
@@ -1543,21 +1452,25 @@ public class main extends javax.swing.JFrame {
                 studentsModel.setValueAt(rs.getString("docabot"), row, 3);
                 studentsModel.setValueAt(null, row, 4);
                 studentsModel.setValueAt(null, row, 5);
-
+                
                 row++;
             }
             doctable2.setModel(studentsModel);
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
-        }        // TODO add your handling code here:
-        // TODO add your handling code here:
+        }
+        // TODO add your handling code here:// TODO add your handling code here:
     }//GEN-LAST:event_search2KeyReleased
 
     private void search2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search2KeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_search2KeyTyped
+
+    private void bbalik1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bbalik1ActionPerformed
+        
+        this.dispose();
+        new logIn().setVisible(true);
+    }//GEN-LAST:event_bbalik1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1599,8 +1512,9 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JPanel balik;
     private javax.swing.JPanel baton;
     private javax.swing.JButton bbalik;
+    private javax.swing.JButton bbalik1;
+    private com.toedter.calendar.JDateChooser deccidate;
     private javax.swing.JTextField desti;
-    private javax.swing.JComboBox<String> dipu;
     private javax.swing.JButton docbatonno;
     private javax.swing.JButton docbatonyes;
     private javax.swing.JTable doctable;
@@ -1610,6 +1524,8 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JTextField dt;
     private javax.swing.JTextField from;
     private javax.swing.JButton jButton3;
+    private com.toedter.calendar.JCalendar jCalendar1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1631,9 +1547,6 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
@@ -1641,6 +1554,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
@@ -1651,12 +1565,11 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JComboBox<String> m;
-    private javax.swing.JButton out;
     private javax.swing.JTextField search;
     private javax.swing.JTextField search1;
     private javax.swing.JTextField search2;
@@ -1667,22 +1580,19 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JTabbedPane tab;
     private javax.swing.JTextField to;
     private javax.swing.JComboBox<String> type;
-    private javax.swing.JComboBox<String> y;
     private javax.swing.JPanel yesbaton;
     // End of variables declaration//GEN-END:variables
 private String status;
-    private String tuig;
-    private String adlaw;
-    private String month;
+    
     private String yes_no;
-
+    
     private void refresh() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection(new connect().url);
             Statement smt = con.createStatement();
             String sql = "SELECT * FROM redoc1  WHERE subid = '2';";
-
+            
             ResultSet rs = smt.executeQuery(sql);
             DefaultTableModel studentsModel = new tttttt().d;
             int row = 0;
@@ -1694,13 +1604,11 @@ private String status;
                 studentsModel.setValueAt(rs.getString("docabot"), row, 3);
                 studentsModel.setValueAt(rs.getString("dessi"), row, 4);
                 studentsModel.setValueAt(rs.getString("disseto"), row, 5);
-
+                
                 row++;
             }
             doctable.setModel(studentsModel);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
