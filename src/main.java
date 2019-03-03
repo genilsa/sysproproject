@@ -7,11 +7,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import java.util.Date;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -29,12 +31,18 @@ public class main extends javax.swing.JFrame {
      */
     public main() {
         initComponents();
+
         this.setLocationRelativeTo(null);
         jRadioButton3.setVisible(false);
         jRadioButton4.setVisible(false);
         jLabel11.setVisible(false);
         jPanel3.setVisible(false);
-        
+
+        alltrip.setBackground(Color.gray);
+        vehicles.setBackground(Color.gray);
+        drivers.setBackground(Color.gray);
+        addtrip.setBackground(Color.green);
+
     }
 
     /**
@@ -82,18 +90,86 @@ public class main extends javax.swing.JFrame {
         search = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
-        jCalendar1 = new com.toedter.calendar.JCalendar();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        tab = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
+        trips = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        searchbax = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        searchbax = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        help = new javax.swing.JDialog();
+        asystem = new javax.swing.JDialog();
+        adeveloper = new javax.swing.JDialog();
+        salakyan = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jTable5 = new javax.swing.JTable();
+        vmodel = new javax.swing.JTextField();
+        jLabel40 = new javax.swing.JLabel();
+        vbrand = new javax.swing.JTextField();
+        jLabel39 = new javax.swing.JLabel();
+        vyearmodel = new com.toedter.calendar.JYearChooser();
+        vcolorcombo = new javax.swing.JComboBox<>();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        drversave1 = new javax.swing.JButton();
+        jLabel42 = new javax.swing.JLabel();
+        drvrdelet1 = new javax.swing.JButton();
+        asdfghjklkjhgfdsdfghjk = new javax.swing.JLabel();
+        vtype = new javax.swing.JComboBox<>();
+        vcolortext = new javax.swing.JTextField();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jTable5 = new javax.swing.JTable();
+        vplateno = new javax.swing.JTextField();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator8 = new javax.swing.JSeparator();
+        drvredt1 = new javax.swing.JButton();
+        manogdala = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        dfname = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        dmname = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        dlname = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        dsufix = new javax.swing.JTextField();
+        jLabel30 = new javax.swing.JLabel();
+        male = new javax.swing.JRadioButton();
+        female = new javax.swing.JRadioButton();
+        jLabel32 = new javax.swing.JLabel();
+        daddress = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        dbday = new com.toedter.calendar.JDateChooser();
+        jLabel33 = new javax.swing.JLabel();
+        dlisno = new javax.swing.JTextField();
+        jLabel34 = new javax.swing.JLabel();
+        dcpno = new javax.swing.JTextField();
+        jSeparator2 = new javax.swing.JSeparator();
+        drversave = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
+        jLabel31 = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+        drvrdelet = new javax.swing.JButton();
+        drvredt = new javax.swing.JButton();
+        dgender = new javax.swing.ButtonGroup();
+        tab = new javax.swing.JTabbedPane();
+        jPanel2 = new javax.swing.JPanel();
+        splitcar = new javax.swing.JSplitPane();
+        jPanel8 = new javax.swing.JPanel();
+        alltrip = new javax.swing.JButton();
+        vehicles = new javax.swing.JButton();
+        drivers = new javax.swing.JButton();
+        addtrip = new javax.swing.JButton();
+        bbalik3 = new javax.swing.JButton();
+        addtripanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        split = new javax.swing.JSplitPane();
+        splitdoc = new javax.swing.JSplitPane();
         jPanel6 = new javax.swing.JPanel();
         docbatonyes = new javax.swing.JButton();
         docbatonno = new javax.swing.JButton();
@@ -119,6 +195,15 @@ public class main extends javax.swing.JFrame {
         jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
         jSeparator1 = new javax.swing.JSeparator();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         jLabel17.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel17.setText("Date of Travel:");
@@ -561,27 +646,806 @@ public class main extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        trips.setMinimumSize(new java.awt.Dimension(808, 515));
+        trips.setPreferredSize(new java.awt.Dimension(808, 515));
+
+        jLabel15.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel15.setText("Search");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Date of depparture", "Date of arrival", "Destinations", "Purpose", "Driver", "No. of Passengers"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTable1);
+
+        searchbax.setBackground(new java.awt.Color(201, 230, 229));
+        searchbax.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        searchbax.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        searchbax.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchbaxActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel16.setText("All Reservation");
+
+        javax.swing.GroupLayout tripsLayout = new javax.swing.GroupLayout(trips);
+        trips.setLayout(tripsLayout);
+        tripsLayout.setHorizontalGroup(
+            tripsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tripsLayout.createSequentialGroup()
+                .addGroup(tripsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tripsLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(tripsLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(searchbax))
+                    .addGroup(tripsLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 859, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        tripsLayout.setVerticalGroup(
+            tripsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tripsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(tripsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(searchbax, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(11, 11, 11)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        help.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        help.setTitle("Help");
+        help.setModal(true);
+
+        javax.swing.GroupLayout helpLayout = new javax.swing.GroupLayout(help.getContentPane());
+        help.getContentPane().setLayout(helpLayout);
+        helpLayout.setHorizontalGroup(
+            helpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        helpLayout.setVerticalGroup(
+            helpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        asystem.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        asystem.setTitle("About The System");
+        asystem.setMinimumSize(new java.awt.Dimension(100, 1000));
+        asystem.setModal(true);
+
+        javax.swing.GroupLayout asystemLayout = new javax.swing.GroupLayout(asystem.getContentPane());
+        asystem.getContentPane().setLayout(asystemLayout);
+        asystemLayout.setHorizontalGroup(
+            asystemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        asystemLayout.setVerticalGroup(
+            asystemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        adeveloper.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        adeveloper.setTitle("About The Developer");
+        adeveloper.setMinimumSize(new java.awt.Dimension(100, 1000));
+        adeveloper.setModal(true);
+
+        javax.swing.GroupLayout adeveloperLayout = new javax.swing.GroupLayout(adeveloper.getContentPane());
+        adeveloper.getContentPane().setLayout(adeveloperLayout);
+        adeveloperLayout.setHorizontalGroup(
+            adeveloperLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        adeveloperLayout.setVerticalGroup(
+            adeveloperLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        salakyan.setMinimumSize(new java.awt.Dimension(808, 515));
+
+        jTable5.setBackground(new java.awt.Color(204, 204, 255));
+        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Car Name", "Plate Number", "Type", "Color"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable5.setToolTipText("click the row to edit or delete");
+        jTable5.setGridColor(new java.awt.Color(153, 255, 153));
+        jTable5.setIntercellSpacing(new java.awt.Dimension(1, 2));
+        jTable5.setSelectionBackground(new java.awt.Color(0, 84, 215));
+        jTable5.setSelectionForeground(new java.awt.Color(204, 204, 0));
+        jTable5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable5MouseClicked(evt);
+            }
+        });
+        jScrollPane8.setViewportView(jTable5);
+
+        vmodel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        vmodel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        vmodel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vmodelActionPerformed(evt);
+            }
+        });
+
+        jLabel40.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel40.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel40.setText("Brand");
+        jLabel40.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        vbrand.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        vbrand.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        jLabel39.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel39.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel39.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel39.setText("List of Vehicles");
+        jLabel39.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        vyearmodel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        vyearmodel.setValue(2000);
+
+        vcolorcombo.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        vcolorcombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select here", "Red", "Green", "Blue", "Brown", "White", "Black" }));
+        vcolorcombo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                vcolorcomboMouseClicked(evt);
+            }
+        });
+
+        jLabel35.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel35.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel35.setText("Vehicle Type");
+        jLabel35.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        jLabel41.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel41.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel41.setText("Model");
+        jLabel41.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        jLabel38.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel38.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel38.setText("Plate number");
+        jLabel38.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        jLabel37.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel37.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel37.setText("Color");
+        jLabel37.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        drversave1.setBackground(new java.awt.Color(204, 204, 204));
+        drversave1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        drversave1.setForeground(new java.awt.Color(0, 180, 0));
+        drversave1.setText("SAVE");
+        drversave1.setToolTipText("click to record");
+        drversave1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        drversave1.setMaximumSize(new java.awt.Dimension(68, 29));
+        drversave1.setMinimumSize(new java.awt.Dimension(68, 29));
+        drversave1.setPreferredSize(new java.awt.Dimension(68, 29));
+        drversave1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                drversave1ActionPerformed(evt);
+            }
+        });
+
+        jLabel42.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel42.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel42.setText("Year Model");
+        jLabel42.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        drvrdelet1.setBackground(new java.awt.Color(204, 204, 204));
+        drvrdelet1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        drvrdelet1.setForeground(java.awt.Color.red);
+        drvrdelet1.setText("DELETE");
+        drvrdelet1.setToolTipText("click to delete");
+        drvrdelet1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        drvrdelet1.setMaximumSize(new java.awt.Dimension(68, 29));
+        drvrdelet1.setMinimumSize(new java.awt.Dimension(68, 29));
+        drvrdelet1.setPreferredSize(new java.awt.Dimension(68, 29));
+        drvrdelet1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                drvrdelet1ActionPerformed(evt);
+            }
+        });
+
+        asdfghjklkjhgfdsdfghjk.setBackground(new java.awt.Color(153, 153, 153));
+        asdfghjklkjhgfdsdfghjk.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        asdfghjklkjhgfdsdfghjk.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        asdfghjklkjhgfdsdfghjk.setText("VEHICLES");
+        asdfghjklkjhgfdsdfghjk.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        vtype.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        vtype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select here", "Car", "Bus" }));
+
+        vcolortext.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        vcolortext.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        vcolortext.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                vcolortextMouseClicked(evt);
+            }
+        });
+
+        jTable5.setBackground(new java.awt.Color(204, 204, 255));
+        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Car Name", "Plate Number", "Type", "Color"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable5.setToolTipText("click the row to edit or delete");
+        jTable5.setGridColor(new java.awt.Color(153, 255, 153));
+        jTable5.setIntercellSpacing(new java.awt.Dimension(1, 2));
+        jTable5.setSelectionBackground(new java.awt.Color(0, 84, 215));
+        jTable5.setSelectionForeground(new java.awt.Color(204, 204, 0));
+        jTable5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable5MouseClicked(evt);
+            }
+        });
+        jScrollPane8.setViewportView(jTable5);
+
+        vplateno.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        vplateno.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        drvredt1.setBackground(new java.awt.Color(204, 204, 204));
+        drvredt1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        drvredt1.setForeground(new java.awt.Color(0, 180, 0));
+        drvredt1.setText("Edit");
+        drvredt1.setToolTipText("click to edit");
+        drvredt1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        drvredt1.setMaximumSize(new java.awt.Dimension(68, 29));
+        drvredt1.setMinimumSize(new java.awt.Dimension(68, 29));
+        drvredt1.setPreferredSize(new java.awt.Dimension(68, 29));
+        drvredt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                drvredt1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(asdfghjklkjhgfdsdfghjk, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel11Layout.createSequentialGroup()
+                                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(10, 10, 10)
+                                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(vmodel, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(vbrand)
+                                            .addComponent(vplateno, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel11Layout.createSequentialGroup()
+                                                .addComponent(vcolorcombo, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(vcolortext, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
+                                            .addComponent(vtype, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(vyearmodel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(jSeparator4))
+                                .addGap(19, 19, 19))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                                .addComponent(drversave1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(72, 72, 72)))
+                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addComponent(drvredt1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
+                                .addComponent(drvrdelet1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jSeparator8, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
+                            .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
+        );
+
+        jPanel11Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel35, jLabel37, jLabel38, jLabel40, jLabel41, jLabel42});
+
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(asdfghjklkjhgfdsdfghjk)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addComponent(jLabel39)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(drvredt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(drvrdelet1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(29, 29, 29))
+                            .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel35)
+                                    .addComponent(vtype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel37)
+                                    .addComponent(vcolorcombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(vcolortext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel38)
+                                    .addComponent(vplateno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel40)
+                                    .addComponent(vbrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel41)
+                                    .addComponent(vmodel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel42)
+                                    .addComponent(vyearmodel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(drversave1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30))))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(18, 18, Short.MAX_VALUE)
+                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+
+        jPanel11Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {asdfghjklkjhgfdsdfghjk, jLabel35, jLabel37, jLabel38, jLabel39, jLabel40, jLabel41, jLabel42, vbrand, vcolorcombo, vcolortext, vmodel, vplateno, vtype, vyearmodel});
+
+        javax.swing.GroupLayout salakyanLayout = new javax.swing.GroupLayout(salakyan);
+        salakyan.setLayout(salakyanLayout);
+        salakyanLayout.setHorizontalGroup(
+            salakyanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(salakyanLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        salakyanLayout.setVerticalGroup(
+            salakyanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, salakyanLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+
+        manogdala.setMinimumSize(new java.awt.Dimension(805, 515));
+        manogdala.setPreferredSize(new java.awt.Dimension(805, 515));
+
+        jLabel25.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel25.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel25.setText("FILL UP FORM");
+        jLabel25.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        jLabel9.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel9.setText("First name");
+        jLabel9.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        dfname.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        dfname.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        jLabel26.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel26.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel26.setText("Middle name");
+        jLabel26.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        dmname.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        dmname.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        jLabel27.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel27.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel27.setText("Last name");
+        jLabel27.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        dlname.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        dlname.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        jLabel28.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel28.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel28.setText("Suffix name");
+        jLabel28.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        dsufix.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        dsufix.setToolTipText("Suffix name just like \"Jr., Sr., I\"");
+        dsufix.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        dsufix.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dsufixActionPerformed(evt);
+            }
+        });
+
+        jLabel30.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel30.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel30.setText("Gender");
+        jLabel30.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        dgender.add(male);
+        male.setText("Male");
+        male.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maleActionPerformed(evt);
+            }
+        });
+
+        dgender.add(female);
+        female.setText("Female");
+        female.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                femaleActionPerformed(evt);
+            }
+        });
+
+        jLabel32.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel32.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel32.setText("Address");
+        jLabel32.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        daddress.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        daddress.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        jLabel29.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel29.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel29.setText("Birthday");
+        jLabel29.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        dbday.setDateFormatString("yyyy/MM/dd");
+
+        jLabel33.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel33.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel33.setText("License number");
+        jLabel33.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        dlisno.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        dlisno.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        jLabel34.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel34.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel34.setText("Contact number");
+        jLabel34.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        dcpno.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        dcpno.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        drversave.setBackground(new java.awt.Color(204, 204, 204));
+        drversave.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        drversave.setForeground(new java.awt.Color(0, 180, 0));
+        drversave.setText("SAVE");
+        drversave.setToolTipText("click to record");
+        drversave.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        drversave.setMaximumSize(new java.awt.Dimension(68, 29));
+        drversave.setMinimumSize(new java.awt.Dimension(68, 29));
+        drversave.setPreferredSize(new java.awt.Dimension(68, 29));
+        drversave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                drversaveActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator2)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(drversave, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(dfname))
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(dmname))
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(dlname))
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel9Layout.createSequentialGroup()
+                                        .addComponent(male, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(female))
+                                    .addComponent(dsufix)))
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(daddress))
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(dbday, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(dlisno))
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(dcpno, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+
+        jPanel9Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel26, jLabel27, jLabel28, jLabel29, jLabel30, jLabel32, jLabel33, jLabel34, jLabel9});
+
+        jPanel9Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {daddress, dbday, dcpno, dfname, dlisno, dlname, dmname, dsufix});
+
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel25)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(dfname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(dmname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(dlname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel28)
+                    .addComponent(dsufix, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30)
+                    .addComponent(male)
+                    .addComponent(female))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel32)
+                    .addComponent(daddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel29)
+                    .addComponent(dbday, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel33)
+                    .addComponent(dlisno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel34)
+                    .addComponent(dcpno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(drversave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanel9Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel26, jLabel27, jLabel28, jLabel29, jLabel30, jLabel32, jLabel33, jLabel34, jLabel9});
+
+        jPanel9Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {daddress, dbday, dcpno, dfname, dlisno, dlname, dmname, dsufix, female, male});
+
+        jTable4.setBackground(new java.awt.Color(204, 204, 255));
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Driver's NAme", "License Number"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable4.setToolTipText("click the row to edit or delete");
+        jTable4.setGridColor(new java.awt.Color(153, 255, 153));
+        jTable4.setIntercellSpacing(new java.awt.Dimension(1, 2));
+        jTable4.setSelectionBackground(new java.awt.Color(0, 84, 215));
+        jTable4.setSelectionForeground(new java.awt.Color(204, 204, 0));
+        jTable4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable4MouseClicked(evt);
+            }
+        });
+        jScrollPane7.setViewportView(jTable4);
+
+        jLabel31.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel31.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel31.setText("DRIVER'S TABLE");
+        jLabel31.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        drvrdelet.setBackground(new java.awt.Color(204, 204, 204));
+        drvrdelet.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        drvrdelet.setForeground(java.awt.Color.red);
+        drvrdelet.setText("DELETE");
+        drvrdelet.setToolTipText("click to delete");
+        drvrdelet.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        drvrdelet.setMaximumSize(new java.awt.Dimension(68, 29));
+        drvrdelet.setMinimumSize(new java.awt.Dimension(68, 29));
+        drvrdelet.setPreferredSize(new java.awt.Dimension(68, 29));
+        drvrdelet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                drvrdeletActionPerformed(evt);
+            }
+        });
+
+        drvredt.setBackground(new java.awt.Color(204, 204, 204));
+        drvredt.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        drvredt.setForeground(new java.awt.Color(0, 180, 0));
+        drvredt.setText("Edit");
+        drvredt.setToolTipText("click to edit");
+        drvredt.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        drvredt.setMaximumSize(new java.awt.Dimension(68, 29));
+        drvredt.setMinimumSize(new java.awt.Dimension(68, 29));
+        drvredt.setPreferredSize(new java.awt.Dimension(68, 29));
+        drvredt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                drvredtActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator3)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(109, Short.MAX_VALUE)
-                .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(162, 162, 162)
-                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
+                        .addComponent(drvredt, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                        .addComponent(drvrdelet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel31)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(drvredt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(drvrdelet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout manogdalaLayout = new javax.swing.GroupLayout(manogdala);
+        manogdala.setLayout(manogdalaLayout);
+        manogdalaLayout.setHorizontalGroup(
+            manogdalaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manogdalaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        manogdalaLayout.setVerticalGroup(
+            manogdalaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manogdalaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(manogdalaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -596,79 +1460,116 @@ public class main extends javax.swing.JFrame {
             }
         });
 
-        jLabel15.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel15.setText("Search");
+        jPanel8.setMaximumSize(new java.awt.Dimension(146, 515));
+        jPanel8.setMinimumSize(new java.awt.Dimension(146, 515));
 
-        searchbax.setBackground(new java.awt.Color(201, 230, 229));
-        searchbax.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        searchbax.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        searchbax.addActionListener(new java.awt.event.ActionListener() {
+        alltrip.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        alltrip.setText("All Trip");
+        alltrip.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchbaxActionPerformed(evt);
+                alltripActionPerformed(evt);
             }
         });
 
-        jLabel16.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel16.setText("All Reservation");
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Date of depparture", "Date of arrival", "Destinations", "Purpose", "Vehicle plate number", "Driver", "No. of Passengers"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        vehicles.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        vehicles.setText("Vehicles");
+        vehicles.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        vehicles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vehiclesActionPerformed(evt);
             }
         });
-        jScrollPane2.setViewportView(jTable1);
+
+        drivers.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        drivers.setText("Drivers");
+        drivers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                driversActionPerformed(evt);
+            }
+        });
+
+        addtrip.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        addtrip.setText("Add Trip");
+        addtrip.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addtripActionPerformed(evt);
+            }
+        });
+
+        bbalik3.setBackground(new java.awt.Color(153, 0, 0));
+        bbalik3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        bbalik3.setForeground(new java.awt.Color(255, 255, 255));
+        bbalik3.setText("Log out");
+        bbalik3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bbalik3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(alltrip, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addtrip, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bbalik3, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(vehicles, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(drivers, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel8Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addtrip, alltrip, bbalik3, drivers, vehicles});
+
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(addtrip, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72)
+                .addComponent(alltrip, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(vehicles, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(drivers, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+                .addComponent(bbalik3)
+                .addContainerGap())
+        );
+
+        jPanel8Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {addtrip, alltrip, drivers, vehicles});
+
+        splitcar.setLeftComponent(jPanel8);
+
+        javax.swing.GroupLayout addtripanelLayout = new javax.swing.GroupLayout(addtripanel);
+        addtripanel.setLayout(addtripanelLayout);
+        addtripanelLayout.setHorizontalGroup(
+            addtripanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 808, Short.MAX_VALUE)
+        );
+        addtripanelLayout.setVerticalGroup(
+            addtripanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 515, Short.MAX_VALUE)
+        );
+
+        splitcar.setRightComponent(addtripanel);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1001, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(searchbax, javax.swing.GroupLayout.PREFERRED_SIZE, 683, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap()
+                .addComponent(splitcar)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(searchbax, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(11, 11, 11)
-                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
+                .addComponent(splitcar)
                 .addContainerGap())
         );
 
@@ -758,7 +1659,7 @@ public class main extends javax.swing.JFrame {
 
         jPanel6Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {addoc, bbalik, docbatonno, docbatonyes});
 
-        split.setLeftComponent(jPanel6);
+        splitdoc.setLeftComponent(jPanel6);
 
         jPanel4.setMaximumSize(new java.awt.Dimension(497, 419));
         jPanel4.setMinimumSize(new java.awt.Dimension(497, 419));
@@ -780,9 +1681,7 @@ public class main extends javax.swing.JFrame {
         to.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         to.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        deccidate.setToolTipText("");
-        deccidate.setDateFormatString("YYYY-MM-dd");
-        deccidate.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        deccidate.setDateFormatString("yyyy/MM/dd");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -795,8 +1694,8 @@ public class main extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 45, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(deccidate, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(to, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(to, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deccidate, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -806,9 +1705,9 @@ public class main extends javax.swing.JFrame {
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(to, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deccidate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(deccidate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -902,7 +1801,7 @@ public class main extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator1)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 738, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -924,11 +1823,8 @@ public class main extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(from, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(35, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(from, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -961,9 +1857,9 @@ public class main extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         jPanel4Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {from, jLabel11, jLabel2, jLabel3, jLabel4, jRadioButton1, jRadioButton2, jRadioButton3, jRadioButton4, type});
@@ -985,7 +1881,7 @@ public class main extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        split.setRightComponent(jPanel10);
+        splitdoc.setRightComponent(jPanel10);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -993,18 +1889,114 @@ public class main extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(split)
+                .addComponent(splitdoc)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(split)
+                .addComponent(splitdoc)
                 .addContainerGap())
         );
 
         tab.addTab("Record Documents", jPanel1);
+
+        jMenu1.setText("File");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
+
+        jMenuItem1.setText("Log out");
+        jMenuItem1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jMenuItem1ItemStateChanged(evt);
+            }
+        });
+        jMenuItem1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jMenuItem1StateChanged(evt);
+            }
+        });
+        jMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItem1MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenuItem1MousePressed(evt);
+            }
+        });
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem4.setText("Exit");
+        jMenuItem4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenuItem4MousePressed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem4);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Help");
+        jMenu2.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu2MenuSelected(evt);
+            }
+        });
+        jMenu2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu2ActionPerformed(evt);
+            }
+        });
+
+        jMenuItem5.setText("Developer Contacts");
+        jMenuItem5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenuItem5MousePressed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem5);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("About");
+
+        jMenuItem2.setText("About System");
+        jMenuItem2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenuItem2MousePressed(evt);
+            }
+        });
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem2);
+
+        jMenuItem3.setText("About Developer");
+        jMenuItem3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenuItem3MousePressed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem3);
+
+        jMenuBar1.add(jMenu3);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1030,13 +2022,13 @@ public class main extends javax.swing.JFrame {
         jRadioButton3.setVisible(true);
         jRadioButton4.setVisible(true);
         jLabel11.setVisible(true);
-        
+
         status = "accept";
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        
+
         jRadioButton3.setVisible(false);
         jRadioButton4.setVisible(false);
         jLabel11.setVisible(false);
@@ -1063,19 +2055,19 @@ public class main extends javax.swing.JFrame {
                     try {
                         Class.forName("com.mysql.jdbc.Driver");
                         Connection con = DriverManager.getConnection(new connect().url);
-                        
+
                         String halin = from.getText();
-                        
+
                         PreparedStatement psmt = con.prepareStatement("insert into redoc2 (ddocfrom,ddoctype,ddocabot)"
                                 + " values (?,?,?)");
-                        
+
                         psmt.setString(1, halin);
-                        
+
                         if (combotype == 0) {
                             JOptionPane.showMessageDialog(rootPane, "Please select Document Type", "Message", JOptionPane.PLAIN_MESSAGE);
                         } else {
                             psmt.setString(2, type.getSelectedItem().toString());
-                            
+
                             Date date = new Date();
                             // Specify the desired date format
                             String DATE_FORMAT = "yyyy/MM/dd";
@@ -1097,26 +2089,26 @@ public class main extends javax.swing.JFrame {
                     }
                 }
             } else if (status == "accept") {
-                
+
                 if (from.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(rootPane, "FILL-UP THE FIELD BEFORE SAVING!", "Message", JOptionPane.PLAIN_MESSAGE);
                 } else {
                     try {
                         Class.forName("com.mysql.jdbc.Driver");
                         Connection con = DriverManager.getConnection(new connect().url);
-                        
+
                         String halin = from.getText();
-                        
+
                         PreparedStatement psmt = con.prepareStatement("insert into redoc1 (docfrom,doctype,docabot,dessi,disseto,subid)"
                                 + " values (?,?,?,?,?,?)");
-                        
+
                         psmt.setString(1, halin);
-                        
+
                         if (combotype == 0) {
                             JOptionPane.showMessageDialog(rootPane, "Please select Document Type", "Message", JOptionPane.PLAIN_MESSAGE);
                         } else {
                             psmt.setString(2, type.getSelectedItem().toString());
-                            
+
                             Date date = new Date();
                             // Specify the desired date format
                             String DATE_FORMAT = "yyyy/MM/dd";
@@ -1130,7 +2122,7 @@ public class main extends javax.swing.JFrame {
                                     JOptionPane.showMessageDialog(rootPane, "Please indicate either to dessiminste or not", "Message", JOptionPane.PLAIN_MESSAGE);
                                 } else {
                                     if (yes_no == "no") {
-                                        
+
                                         psmt.setString(4, null);
                                         psmt.setString(5, null);
                                         psmt.setString(6, "1");
@@ -1140,26 +2132,26 @@ public class main extends javax.swing.JFrame {
                                         type.setSelectedIndex(0);
                                         statusgroup.clearSelection();
                                         to.setText("");
-                                        
+
                                         jPanel3.setVisible(false);
                                         dstatus.clearSelection();
                                         jRadioButton3.setVisible(false);
                                         jRadioButton4.setVisible(false);
                                         jLabel11.setVisible(false);
                                     } else if (yes_no == "yes") {
-                                        
+
                                         if (to.getText().isEmpty()) {
                                             JOptionPane.showMessageDialog(rootPane, "FILL-UP THE FIELD BEFORE SAVING!", "Message", JOptionPane.PLAIN_MESSAGE);
-                                            
+
                                         } else if (deccidate.getDate() == null) {
                                             JOptionPane.showMessageDialog(rootPane, "FILL-UP THE FIELD BEFORE SAVING!", "Message", JOptionPane.PLAIN_MESSAGE);
                                         } else {
-                                            
+
                                             psmt.setString(4, sdf.format(deccidate.getDate()));
-                                            
+
                                             psmt.setString(5, to.getText());
                                             psmt.setString(6, "2");
-                                            
+
                                             psmt.executeUpdate();
                                             JOptionPane.showMessageDialog(null, "SUCCEESSFULLY ADDED");
                                             from.setText("");
@@ -1174,25 +2166,36 @@ public class main extends javax.swing.JFrame {
                                             jLabel11.setVisible(false);
                                         }
                                     }
-                                    
+
                                 }
                             }
                         }
-                        
+
                     } catch (ClassNotFoundException | SQLException ex) {
                         Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    
+
 
     }//GEN-LAST:event_jButton3ActionPerformed
             }
         }
     }
     private void tabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabMouseClicked
-        addoc.setBackground(Color.GREEN);
-        docbatonno.setBackground(Color.GRAY);
-        docbatonyes.setBackground(Color.GRAY);
-        bbalik.setBackground(Color.GRAY);
+        int compo = tab.getSelectedIndex();
+
+        if (compo == 1) {
+            addoc.setBackground(Color.GREEN);
+            docbatonno.setBackground(Color.GRAY);
+            docbatonyes.setBackground(Color.GRAY);
+            bbalik.setBackground(Color.GRAY);
+            splitdoc.setRightComponent(jPanel10);
+        } else if (compo == 0) {
+            alltrip.setBackground(Color.gray);
+            vehicles.setBackground(Color.gray);
+            drivers.setBackground(Color.gray);
+            addtrip.setBackground(Color.green);
+            splitcar.setRightComponent(addtripanel);
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_tabMouseClicked
 
@@ -1210,10 +2213,6 @@ public class main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_dtActionPerformed
 
-    private void searchbaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchbaxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_searchbaxActionPerformed
-
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
@@ -1223,19 +2222,19 @@ public class main extends javax.swing.JFrame {
         type.setSelectedIndex(0);
         statusgroup.clearSelection();
         to.setText("");
-        
+
         jPanel3.setVisible(false);
         dstatus.clearSelection();
         jRadioButton3.setVisible(false);
         jRadioButton4.setVisible(false);
         jLabel11.setVisible(false);
-        
+
         addoc.setBackground(Color.GREEN);
         docbatonno.setBackground(Color.GRAY);
         docbatonyes.setBackground(Color.GRAY);
         bbalik.setBackground(Color.GRAY);
-        
-        split.setRightComponent(jPanel10);
+
+        splitdoc.setRightComponent(jPanel10);
         // TODO add your handling code here:
     }//GEN-LAST:event_addocActionPerformed
 
@@ -1247,7 +2246,7 @@ public class main extends javax.swing.JFrame {
         if (search.getText().equals("")) {
             jLabel6.setText("All Accepted Documents");
         } else {
-            
+
             jLabel6.setText("All Result");
         }
         String pangita = search.getText();
@@ -1256,7 +2255,7 @@ public class main extends javax.swing.JFrame {
             Connection con = DriverManager.getConnection(new connect().url);
             Statement smt = con.createStatement();
             String sql = "SELECT * FROM redoc1 WHERE subid = '2' and";
-            
+
             if (pangita != (null)) {
                 sql = sql + " (docfrom LIKE '%" + pangita + "%')";
             }
@@ -1269,10 +2268,8 @@ public class main extends javax.swing.JFrame {
                 studentsModel.setValueAt(rs.getString("docfrom"), row, 1);
                 studentsModel.setValueAt(rs.getString("doctype"), row, 2);
                 studentsModel.setValueAt(rs.getString("docabot"), row, 3);
-                
                 studentsModel.setValueAt(rs.getString("dessi"), row, 4);
                 studentsModel.setValueAt(rs.getString("disseto"), row, 5);
-                
                 row++;
             }
             doctable.setModel(studentsModel);
@@ -1291,11 +2288,11 @@ public class main extends javax.swing.JFrame {
         docbatonno.setBackground(Color.GRAY);
         docbatonyes.setBackground(Color.GREEN);
         bbalik.setBackground(Color.GRAY);
-        
+
         search.setText("");
         search1.setText("");
         search2.setText("");
-        split.setRightComponent(yesbaton);
+        splitdoc.setRightComponent(yesbaton);
         refresh();
 // TODO add your handling code here:
     }//GEN-LAST:event_docbatonyesActionPerformed
@@ -1305,18 +2302,18 @@ public class main extends javax.swing.JFrame {
         docbatonno.setBackground(Color.GREEN);
         docbatonyes.setBackground(Color.GRAY);
         bbalik.setBackground(Color.GRAY);
-        
-        split.setRightComponent(baton);
+
+        splitdoc.setRightComponent(baton);
         search.setText("");
         search1.setText("");
         search2.setText("");
-        
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection(new connect().url);
             Statement smt = con.createStatement();
             String sql = "SELECT * FROM redoc1 WHERE subid = '1';";
-            
+
             ResultSet rs = smt.executeQuery(sql);
             DefaultTableModel studentsModel = new tttttt().d1;
             int row = 0;
@@ -1326,7 +2323,7 @@ public class main extends javax.swing.JFrame {
                 studentsModel.setValueAt(rs.getString("docfrom"), row, 1);
                 studentsModel.setValueAt(rs.getString("doctype"), row, 2);
                 studentsModel.setValueAt(rs.getString("docabot"), row, 3);
-                
+
                 row++;
             }
             doctable2.setModel(studentsModel);
@@ -1334,7 +2331,7 @@ public class main extends javax.swing.JFrame {
             Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
         }
 // TODO add your handling code here:
-        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_docbatonnoActionPerformed
 
@@ -1343,18 +2340,18 @@ public class main extends javax.swing.JFrame {
         docbatonno.setBackground(Color.GRAY);
         docbatonyes.setBackground(Color.GRAY);
         bbalik.setBackground(Color.GREEN);
-        
+
         search.setText("");
         search1.setText("");
         search2.setText("");
-        split.setRightComponent(balik);
-        
+        splitdoc.setRightComponent(balik);
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection(new connect().url);
             Statement smt = con.createStatement();
             String sql = "SELECT * FROM redoc2;";
-            
+
             ResultSet rs = smt.executeQuery(sql);
             DefaultTableModel studentsModel = new tttttt().d1;
             int row = 0;
@@ -1364,7 +2361,7 @@ public class main extends javax.swing.JFrame {
                 studentsModel.setValueAt(rs.getString("ddocfrom"), row, 1);
                 studentsModel.setValueAt(rs.getString("ddoctype"), row, 2);
                 studentsModel.setValueAt(rs.getString("ddocabot"), row, 3);
-                
+
                 row++;
             }
             doctable1.setModel(studentsModel);
@@ -1372,7 +2369,7 @@ public class main extends javax.swing.JFrame {
             Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
         }
         // TODO add your handling code here:
-                // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_bbalikActionPerformed
 
     private void search1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search1ActionPerformed
@@ -1384,7 +2381,7 @@ public class main extends javax.swing.JFrame {
         if (search1.getText().equals("")) {
             jLabel6.setText("All Deny Documents");
         } else {
-            
+
             jLabel6.setText("All Result");
         }
         String pangita = search1.getText();
@@ -1393,7 +2390,7 @@ public class main extends javax.swing.JFrame {
             Connection con = DriverManager.getConnection(new connect().url);
             Statement smt = con.createStatement();
             String sql = "SELECT * FROM redoc2 WHERE";
-            
+
             if (pangita != (null)) {
                 sql = sql + " (ddocfrom LIKE '%" + pangita + "%')";
             }
@@ -1406,7 +2403,7 @@ public class main extends javax.swing.JFrame {
                 studentsModel.setValueAt(rs.getString("ddocfrom"), row, 1);
                 studentsModel.setValueAt(rs.getString("ddoctype"), row, 2);
                 studentsModel.setValueAt(rs.getString("ddocabot"), row, 3);
-                
+
                 row++;
             }
             doctable1.setModel(studentsModel);
@@ -1428,7 +2425,6 @@ public class main extends javax.swing.JFrame {
         if (search2.getText().equals("")) {
             jLabel6.setText("All Accepted Documents");
         } else {
-            
             jLabel6.setText("All Result");
         }
         String pangita = search2.getText();
@@ -1437,7 +2433,7 @@ public class main extends javax.swing.JFrame {
             Connection con = DriverManager.getConnection(new connect().url);
             Statement smt = con.createStatement();
             String sql = "SELECT * FROM redoc1 WHERE subid = '1' and";
-            
+
             if (pangita != (null)) {
                 sql = sql + " (docfrom LIKE '%" + pangita + "%')";
             }
@@ -1452,7 +2448,7 @@ public class main extends javax.swing.JFrame {
                 studentsModel.setValueAt(rs.getString("docabot"), row, 3);
                 studentsModel.setValueAt(null, row, 4);
                 studentsModel.setValueAt(null, row, 5);
-                
+
                 row++;
             }
             doctable2.setModel(studentsModel);
@@ -1467,10 +2463,426 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_search2KeyTyped
 
     private void bbalik1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bbalik1ActionPerformed
-        
         this.dispose();
         new logIn().setVisible(true);
     }//GEN-LAST:event_bbalik1ActionPerformed
+
+    private void alltripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alltripActionPerformed
+        splitcar.setRightComponent(trips);
+        alltrip.setBackground(Color.green);
+        vehicles.setBackground(Color.gray);
+        drivers.setBackground(Color.gray);
+        addtrip.setBackground(Color.gray);
+    }//GEN-LAST:event_alltripActionPerformed
+    private void vehiclesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehiclesActionPerformed
+        splitcar.setRightComponent(salakyan);
+        alltrip.setBackground(Color.gray);
+        vehicles.setBackground(Color.green);
+        drivers.setBackground(Color.gray);
+        addtrip.setBackground(Color.gray);
+        refreshvehicle();// TODO add your handling code here:
+    }//GEN-LAST:event_vehiclesActionPerformed
+
+    private void driversActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driversActionPerformed
+        splitcar.setRightComponent(manogdala);
+        alltrip.setBackground(Color.gray);
+        vehicles.setBackground(Color.gray);
+        drivers.setBackground(Color.green);
+        addtrip.setBackground(Color.gray);
+        refreshdriver();// TODO add your handling code here:
+    }//GEN-LAST:event_driversActionPerformed
+
+    private void addtripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addtripActionPerformed
+        splitcar.setRightComponent(addtripanel);
+        alltrip.setBackground(Color.gray);
+        vehicles.setBackground(Color.gray);
+        drivers.setBackground(Color.gray);
+        addtrip.setBackground(Color.green);
+    }//GEN-LAST:event_addtripActionPerformed
+
+    private void bbalik3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bbalik3ActionPerformed
+
+        this.dispose();
+        new logIn().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_bbalik3ActionPerformed
+
+    private void searchbaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchbaxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchbaxActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jMenuItem1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jMenuItem1ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ItemStateChanged
+
+    private void jMenuItem1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jMenuItem1StateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1StateChanged
+
+    private void jMenuItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1MouseClicked
+
+    private void jMenuItem1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem1MousePressed
+
+        this.dispose();
+        new logIn().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1MousePressed
+
+    private void jMenu2MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu2MenuSelected
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu2MenuSelected
+
+    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu2ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem2MousePressed
+        asystem.setVisible(true);
+        asystem.setLocationRelativeTo(null);
+// TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2MousePressed
+
+    private void jMenuItem3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem3MousePressed
+        adeveloper.setVisible(true);
+        adeveloper.setLocationRelativeTo(null);        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3MousePressed
+
+    private void jMenuItem4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem4MousePressed
+        int x = JOptionPane.showConfirmDialog(null, "ARE YOU SURE YOU WANT TO EXIT?", "Warning", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        if (x == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem4MousePressed
+
+    private void jMenuItem5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem5MousePressed
+        help.setVisible(true);
+        help.setLocationRelativeTo(null);        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem5MousePressed
+
+    private void drversaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drversaveActionPerformed
+
+        //  int x = JOptionPane.showConfirmDialog(rootPane, "Please fill up the name","Message",JOptionPane.YES_NO_OPTION,3);
+        if (dfname.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Please fill up the first name", "Message", JOptionPane.WARNING_MESSAGE);
+        } else if (dmname.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Please fill up the middle name", "Message", JOptionPane.WARNING_MESSAGE);
+        } else if (dlname.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Please fill up the  last name", "Message", JOptionPane.WARNING_MESSAGE);
+        } else if (dbday.getDate() == null) {
+            JOptionPane.showMessageDialog(rootPane, "Please fill up the birthday", "Message", JOptionPane.WARNING_MESSAGE);
+        } else if (dgender.isSelected(null)) {
+            JOptionPane.showMessageDialog(rootPane, "Please fill up the gender", "Message", JOptionPane.WARNING_MESSAGE);
+        } else if (daddress.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Please fill up the address", "Message", JOptionPane.WARNING_MESSAGE);
+        } else if (dlisno.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Please fill up the license number", "Message", JOptionPane.WARNING_MESSAGE);
+        } else if (dcpno.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Please fill up the birthday", "Message", JOptionPane.WARNING_MESSAGE);
+        } else {
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection(new connect().url);
+                if ("SAVE".equals(drversave.getText())) {
+                    PreparedStatement pstmt = con.prepareStatement("INSERT INTO driver(fname,mname,lname,suffixname,gender,bday,license_no,address,cellnumber)"
+                            + " VALUES (?,?,?,?,?,?,?,?,?)");
+                    pstmt.setString(1, dfname.getText());
+                    pstmt.setString(2, dmname.getText());
+                    pstmt.setString(3, dlname.getText());
+                    pstmt.setString(4, dsufix.getText());
+                    if (dgen == "m") {
+                        pstmt.setString(5, "m");
+                    } else {
+                        pstmt.setString(5, "f");
+                    }
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+                    pstmt.setString(6, sdf.format(dbday.getDate()));
+                    pstmt.setString(7, daddress.getText());
+                    pstmt.setString(8, dlisno.getText());
+                    pstmt.setString(9, dcpno.getText());
+                    pstmt.execute();
+                    JOptionPane.showMessageDialog(rootPane, "Successfully saved");
+                } else {
+                    int row = jTable4.getSelectedRow();
+                    TableModel model = jTable4.getModel();
+                    String l = model.getValueAt(row, 1).toString();
+                    PreparedStatement pstmt = con.prepareStatement("UPDATE driver set fname = ?,mname =?,lname=?,suffixname=?,gender=?,"
+                            + "bday=?,address=?,license_no=?,cellnumber=? WHERE license_no ='" + l + "';");
+                    pstmt.setString(1, dfname.getText());
+                    pstmt.setString(2, dmname.getText());
+                    pstmt.setString(3, dlname.getText());
+                    pstmt.setString(4, dsufix.getText());
+                    if ("m".equals(dgen)) {
+                        pstmt.setString(5, "m");
+                    } else {
+                        pstmt.setString(5, "f");
+                    }
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+                    pstmt.setString(6, sdf.format(dbday.getDate()));
+                    pstmt.setString(7, daddress.getText());
+                    pstmt.setString(8, dlisno.getText());
+                    pstmt.setString(9, dcpno.getText());
+                    pstmt.execute();
+                    JOptionPane.showMessageDialog(rootPane, "Successfully Updated");
+                }
+                dfname.setText("");
+                dmname.setText("");
+                dlname.setText("");
+                dsufix.setText("");
+                dgender.clearSelection();
+                dbday.setCalendar(null);
+                daddress.setText("");
+                dlisno.setText("");
+                dcpno.setText("");
+                drversave.setText("SAVE");
+                refreshdriver();
+
+            } catch (ClassNotFoundException | SQLException ex) {
+                Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(rootPane, ex, "ERROR", 0);
+            }
+        }
+// TODO add your handling code here:
+    }//GEN-LAST:event_drversaveActionPerformed
+
+    private void maleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleActionPerformed
+        dgen = "m";        // TODO add your handling code here:
+    }//GEN-LAST:event_maleActionPerformed
+
+    private void femaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleActionPerformed
+        dgen = "f";        // TODO add your handling code here:
+    }//GEN-LAST:event_femaleActionPerformed
+
+    private void dsufixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dsufixActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dsufixActionPerformed
+
+    private void drvrdeletActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drvrdeletActionPerformed
+        int rowcount = jTable4.getSelectedRowCount();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(new connect().url);
+            Statement smt = con.createStatement();
+
+            int x = JOptionPane.showConfirmDialog(rootPane, "Delete the selected " + rowcount + " row(s)?", "Warning", JOptionPane.YES_NO_OPTION, 2);
+            if (x == JOptionPane.YES_OPTION) {
+                for (int y = rowcount; y > 0; y--) {
+                    TableModel model = jTable4.getModel();
+                    String l = model.getValueAt(y - 1, 1).toString();
+                    String sql = "DELETE FROM driver WHERE license_no = '" + l + "';";
+                    smt.execute(sql);
+                }
+            } else {
+            }
+            refreshdriver();
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_drvrdeletActionPerformed
+
+    private void drvredtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drvredtActionPerformed
+        int row = jTable4.getSelectedRow();
+        TableModel model = jTable4.getModel();
+        String l = model.getValueAt(row, 1).toString();
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(new connect().url);
+            Statement smt = con.createStatement();
+            String sql = "SELECT * FROM driver WHERE license_no = '" + l + "';";
+            ResultSet rs = smt.executeQuery(sql);
+
+            if (rs.first()) {
+                dfname.setText(rs.getString("fname"));
+                dmname.setText(rs.getString("mname"));
+                dlname.setText(rs.getString("lname"));
+                dsufix.setText(rs.getString("suffixname"));
+                String gender = rs.getString("gender");
+                if ("m".equals(gender)) {
+                    male.setSelected(true);
+                } else {
+                    female.setSelected(true);
+                }
+                daddress.setText(rs.getString("address"));
+                dbday.setDate(rs.getDate("bday"));
+                dlisno.setText(rs.getString("license_no"));
+                dcpno.setText(rs.getString("cellnumber"));
+
+                drversave.setText("UPDATE");
+            }
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_drvredtActionPerformed
+
+    private void jTable4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable4MouseClicked
+        // TODO add your handling code here:
+        drvredt.setEnabled(true);
+        drvrdelet.setEnabled(true);
+    }//GEN-LAST:event_jTable4MouseClicked
+
+    private void drversave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drversave1ActionPerformed
+        if (vtype.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(rootPane, "Please select vehicle type", "Message", JOptionPane.WARNING_MESSAGE);
+        } else if (vcolorcombo.getSelectedIndex() == 0 && vcolortext.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Please select or type the color of the vehicle", "Message", JOptionPane.WARNING_MESSAGE);
+        } else if (vplateno.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Please fill up the plate number", "Message", JOptionPane.WARNING_MESSAGE);
+        } else if (vbrand.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Please fill up the brand", "Message", JOptionPane.WARNING_MESSAGE);
+        } else if (vmodel.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Please fill up the model", "Message", JOptionPane.WARNING_MESSAGE);
+        } else if (vyearmodel.getYear() == 2000) {
+            int x = JOptionPane.showConfirmDialog(rootPane, "2000 is the year model?", "Message", JOptionPane.YES_NO_OPTION, 3);
+            if (x == JOptionPane.NO_OPTION) {
+                JOptionPane.showMessageDialog(rootPane, "Please fill up or select the year model", "Message", JOptionPane.WARNING_MESSAGE);
+            } else {
+
+                try {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection con = DriverManager.getConnection(new connect().url);
+                    if ("SAVE".equals(drversave1.getText())) {
+                        PreparedStatement pstmt = con.prepareStatement("INSERT INTO vehicle VALUES (null,?,?,?,?,?,?);");
+                        pstmt.setString(1, vtype.getSelectedItem().toString());
+                        if (vcolorcombo.getSelectedIndex() == 0) {
+                            pstmt.setString(2, vcolortext.getText());
+                        } else if (vcolortext.isEditable()) {
+                            pstmt.setString(2, vcolorcombo.getSelectedItem().toString());
+                        } else {
+                        }
+                        pstmt.setString(3, vplateno.getText());
+                        pstmt.setString(4, vbrand.getText());
+                        pstmt.setString(5, vmodel.getText());
+                        pstmt.setString(6, vyearmodel.getYear() + "");
+                        pstmt.execute();
+
+                        JOptionPane.showMessageDialog(rootPane, "Successfully save");
+                    } else {
+                        int row = jTable5.getSelectedRow();
+                        TableModel model = jTable5.getModel();
+                        String l = model.getValueAt(row, 1).toString();
+                        PreparedStatement pstmt = con.prepareStatement("UPDATE driver set v_type = ?,color =?,plate_no=?,brand=?,model=?,"
+                                + "yearmodel=? WHERE license_no ='" + l + "';");
+                        pstmt.setString(1, vtype.getSelectedItem().toString());
+                        if (vcolorcombo.getSelectedIndex() == 0) {
+                            pstmt.setString(2, vcolortext.getText());
+                        } else if (vcolortext.isEditable()) {
+                            pstmt.setString(2, vcolorcombo.getSelectedItem().toString());
+                        } else {
+                        }
+                        pstmt.setString(3, vplateno.getText());
+                        pstmt.setString(4, vbrand.getText());
+                        pstmt.setString(5, vmodel.getText());
+                        pstmt.setString(6, vyearmodel.getYear() + "");
+                        pstmt.execute();
+                        JOptionPane.showMessageDialog(rootPane, "Successfully Updated");
+                    }
+                    vtype.setSelectedIndex(0);
+                    vcolorcombo.setSelectedIndex(0);
+                    vcolortext.setText("");
+                    vplateno.setText("");
+                    vbrand.setText("");
+                    vmodel.setText("");
+                    vyearmodel.setYear(2000);
+                    drversave1.setText("SAVE");
+                    refreshvehicle();
+
+                } catch (ClassNotFoundException | SQLException ex) {
+                    Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }else{
+            System.out.println("gwapo");
+        }
+    }//GEN-LAST:event_drversave1ActionPerformed
+
+    private void jTable5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable5MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable5MouseClicked
+
+    private void drvrdelet1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drvrdelet1ActionPerformed
+        int rowcount = jTable5.getSelectedRowCount();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(new connect().url);
+            Statement smt = con.createStatement();
+
+            int x = JOptionPane.showConfirmDialog(rootPane, "Delete the selected " + rowcount + " row(s)?", "Warning", JOptionPane.YES_NO_OPTION, 2);
+            if (x == JOptionPane.YES_OPTION) {
+                for (int y = rowcount; y > 0; y--) {
+                    TableModel model = jTable5.getModel();
+                    String l = model.getValueAt(y - 1, 1).toString();
+                    String sql = "DELETE FROM vehicle WHERE plate_no = '" + l + "';";
+                    smt.execute(sql);
+                }
+            } else {
+            }
+            refreshdriver();
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_drvrdelet1ActionPerformed
+
+    private void vmodelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vmodelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_vmodelActionPerformed
+
+    private void drvredt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drvredt1ActionPerformed
+        int row = jTable5.getSelectedRow();
+        TableModel model = jTable5.getModel();
+        String l = model.getValueAt(row, 1).toString();
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(new connect().url);
+            Statement smt = con.createStatement();
+            String sql = "SELECT * FROM vehicle WHERE plate_no = '" + l + "';";
+            ResultSet rs = smt.executeQuery(sql);
+
+            if (rs.first()) {
+                vtype.setSelectedItem(rs.getString(2));
+                vcolortext.setText(rs.getString(3));
+                vcolorcombo.setSelectedItem(rs.getString(3));
+                vplateno.setText(rs.getString(4));
+                vbrand.setText(rs.getString(5));
+                vmodel.setText(rs.getString(6));
+                vyearmodel.setYear(rs.getInt(7));
+
+                drversave1.setText("UPDATE");
+            }
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_drvredt1ActionPerformed
+
+    private void vcolorcomboMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vcolorcomboMouseClicked
+        if (vcolorcombo.getSelectedIndex() == 0) {
+            vcolortext.setEditable(true);
+        } else {
+            vcolortext.setEditable(false);
+            // vcolortext.setText(vcolorcombo.getSelectedItem().toString());
+
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_vcolorcomboMouseClicked
+
+    private void vcolortextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vcolortextMouseClicked
+        vcolorcombo.setSelectedIndex(0);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_vcolortextMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1509,23 +2921,46 @@ public class main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addoc;
+    private javax.swing.JButton addtrip;
+    private javax.swing.JPanel addtripanel;
+    private javax.swing.JDialog adeveloper;
+    private javax.swing.JButton alltrip;
+    private javax.swing.JLabel asdfghjklkjhgfdsdfghjk;
+    private javax.swing.JDialog asystem;
     private javax.swing.JPanel balik;
     private javax.swing.JPanel baton;
     private javax.swing.JButton bbalik;
     private javax.swing.JButton bbalik1;
+    private javax.swing.JButton bbalik3;
+    private javax.swing.JTextField daddress;
+    private com.toedter.calendar.JDateChooser dbday;
+    private javax.swing.JTextField dcpno;
     private com.toedter.calendar.JDateChooser deccidate;
     private javax.swing.JTextField desti;
+    private javax.swing.JTextField dfname;
+    private javax.swing.ButtonGroup dgender;
+    private javax.swing.JTextField dlisno;
+    private javax.swing.JTextField dlname;
+    private javax.swing.JTextField dmname;
     private javax.swing.JButton docbatonno;
     private javax.swing.JButton docbatonyes;
     private javax.swing.JTable doctable;
     private javax.swing.JTable doctable1;
     private javax.swing.JTable doctable2;
+    private javax.swing.JButton drivers;
+    private javax.swing.JButton drversave;
+    private javax.swing.JButton drversave1;
+    private javax.swing.JButton drvrdelet;
+    private javax.swing.JButton drvrdelet1;
+    private javax.swing.JButton drvredt;
+    private javax.swing.JButton drvredt1;
     private javax.swing.ButtonGroup dstatus;
+    private javax.swing.JTextField dsufix;
     private javax.swing.JTextField dt;
+    private javax.swing.JRadioButton female;
     private javax.swing.JTextField from;
+    private javax.swing.JDialog help;
     private javax.swing.JButton jButton3;
-    private com.toedter.calendar.JCalendar jCalendar1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1543,18 +2978,48 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
@@ -1565,34 +3030,108 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator8;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTable4;
+    private javax.swing.JTable jTable5;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JRadioButton male;
+    private javax.swing.JPanel manogdala;
+    private javax.swing.JPanel salakyan;
     private javax.swing.JTextField search;
     private javax.swing.JTextField search1;
     private javax.swing.JTextField search2;
     private javax.swing.JTextField searchbax;
     private javax.swing.JDialog searchbox;
-    private javax.swing.JSplitPane split;
+    private javax.swing.JSplitPane splitcar;
+    private javax.swing.JSplitPane splitdoc;
     private javax.swing.ButtonGroup statusgroup;
     private javax.swing.JTabbedPane tab;
     private javax.swing.JTextField to;
+    private javax.swing.JPanel trips;
     private javax.swing.JComboBox<String> type;
+    private javax.swing.JTextField vbrand;
+    private javax.swing.JComboBox<String> vcolorcombo;
+    private javax.swing.JTextField vcolortext;
+    private javax.swing.JButton vehicles;
+    private javax.swing.JTextField vmodel;
+    private javax.swing.JTextField vplateno;
+    private javax.swing.JComboBox<String> vtype;
+    private com.toedter.calendar.JYearChooser vyearmodel;
     private javax.swing.JPanel yesbaton;
     // End of variables declaration//GEN-END:variables
-private String status;
-    
+    private String status;
+    private String dgen;
     private String yes_no;
-    
+
+    private void refreshdriver() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(new connect().url);
+            Statement smt = con.createStatement();
+            String sql = "SELECT * FROM driver;";
+            ResultSet rs = smt.executeQuery(sql);
+            DefaultTableModel studentsModel = new tttttt().tabledriver;
+            int row = 0;
+            while (rs.next()) {
+                String firstname = rs.getString("fname");
+                String middle = rs.getString("mname");
+                String lastname = rs.getString("lname");
+                char c = middle.charAt(0);
+                studentsModel.addRow(new Object[]{});
+                studentsModel.setValueAt(firstname + " " + c + "." + " " + lastname, row, 0);
+                studentsModel.setValueAt(rs.getString("license_no"), row, 1);
+                row++;
+            }
+            jTable4.setModel(studentsModel);
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        drvredt.setEnabled(false);
+        drvrdelet.setEnabled(false);
+    }
+
+    private void refreshvehicle() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(new connect().url);
+            Statement smt = con.createStatement();
+            String sql = "SELECT * FROM vehicle;";
+            ResultSet rs = smt.executeQuery(sql);
+            DefaultTableModel studentsModel = new tttttt().tablecar;
+            int row = 0;
+            while (rs.next()) {
+                studentsModel.addRow(new Object[]{});
+                studentsModel.setValueAt(rs.getString(5) + " " + rs.getString(6) + " " + rs.getString(7), row, 0);
+                studentsModel.setValueAt(rs.getString(4), row, 1);
+                studentsModel.setValueAt(rs.getString(2), row, 2);
+                studentsModel.setValueAt(rs.getString(3), row, 3);
+                row++;
+            }
+            jTable5.setModel(studentsModel);
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        drvredt1.setEnabled(false);
+        drvrdelet1.setEnabled(false);
+    }
+
     private void refresh() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection(new connect().url);
             Statement smt = con.createStatement();
             String sql = "SELECT * FROM redoc1  WHERE subid = '2';";
-            
+
             ResultSet rs = smt.executeQuery(sql);
             DefaultTableModel studentsModel = new tttttt().d;
             int row = 0;
@@ -1604,7 +3143,7 @@ private String status;
                 studentsModel.setValueAt(rs.getString("docabot"), row, 3);
                 studentsModel.setValueAt(rs.getString("dessi"), row, 4);
                 studentsModel.setValueAt(rs.getString("disseto"), row, 5);
-                
+
                 row++;
             }
             doctable.setModel(studentsModel);
